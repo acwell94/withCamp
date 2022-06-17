@@ -4,11 +4,12 @@ import FooterContainer from "./footer/Footer.container";
 import HeaderContainer from "./header/Header.container";
 
 const Body = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  background-color: #f3f3f3;
 `;
 
 interface ILayoutProps {
