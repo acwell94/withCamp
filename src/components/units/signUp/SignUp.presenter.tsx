@@ -1,13 +1,14 @@
 import onClickMove from "../../hooks/useMove";
-import * as S from "./SignIn.styles";
+import * as S from "../signIn/SignIn.styles";
 
-function SignInPresenter(props) {
+function SignUpPresenter(props) {
   const { onClickMovetoPage } = onClickMove();
   return (
     <S.Main>
-      <S.MainTitle>
-        <S.MainLogo>with:Camp</S.MainLogo>에 오신것을 환영합니다.
-      </S.MainTitle>
+      <S.SignUpMainTitle>
+        <S.MainDeco>같이 캠핑 갈래?</S.MainDeco>
+        <S.MainLogo>with:Camp</S.MainLogo>
+      </S.SignUpMainTitle>
       <S.FormSection>
         <S.InputSection>
           <S.InputTitle>이메일</S.InputTitle>
@@ -17,13 +18,17 @@ function SignInPresenter(props) {
           <S.InputTitle>비밀번호</S.InputTitle>
           <S.Input placeholder="비밀번호를 입력해주세요." type="password" />
         </S.InputSection>
+        <S.InputSection>
+          <S.InputTitle>닉네임</S.InputTitle>
+          <S.Input placeholder="닉네임을 입력해주세요." type="text" />
+        </S.InputSection>
         <S.ButtonSection>
-          <S.submitButton type="submit">로그인</S.submitButton>
+          <S.submitButton type="submit">회원가입</S.submitButton>
         </S.ButtonSection>
         <S.InfoSection>
-          <S.Info>아직 계정이 없으신가요? &nbsp;</S.Info>
-          <S.InfoMove onClick={onClickMovetoPage("/signup")}>
-            회원가입하러 가기
+          <S.Info>계정이 있으신가요? &nbsp;</S.Info>
+          <S.InfoMove onClick={onClickMovetoPage("/signIn")}>
+            로그인하러 가기
           </S.InfoMove>
         </S.InfoSection>
       </S.FormSection>
@@ -31,4 +36,4 @@ function SignInPresenter(props) {
   );
 }
 
-export default SignInPresenter;
+export default SignUpPresenter;

@@ -22,6 +22,7 @@ export const LogoSection = styled.div`
 
 export const Logo = styled.img`
   width: 150px;
+  cursor: pointer;
 `;
 
 export const HeaderNav = styled.div`
@@ -32,7 +33,9 @@ export const HeaderNav = styled.div`
   width: 50%;
 `;
 
-export const NavMenu = styled.div``;
+export const NavMenu = styled.div`
+  cursor: pointer;
+`;
 
 export const HeaderUserSection = styled.div`
   display: flex;
@@ -41,4 +44,8 @@ export const HeaderUserSection = styled.div`
   align-items: center;
   width: 15%;
   padding: 0px 15px;
+`;
+
+export const UserArticle = styled.div`
+  cursor: pointer;
 `;

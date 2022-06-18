@@ -12,6 +12,19 @@ export const Main = styled.div`
   margin: 50px 0px;
 `;
 
+export const SignUpMainTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0px 0px 10px 0px;
+`;
+export const MainDeco = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+`;
+
 export const MainTitle = styled.div`
   display: flex;
   align-items: flex-end;
@@ -76,8 +89,9 @@ export const Info = styled.div`
   font-size: 16px;
 `;
 
-export const InfoSignUp = styled.div`
+export const InfoMove = styled.div`
   font-size: 16px;
   text-decoration: underline;
   font-weight: 700;
+  cursor: pointer;
 `;

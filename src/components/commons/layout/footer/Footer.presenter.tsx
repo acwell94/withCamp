@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as S from "./Footer.styles";
 
 function FooterPresenter() {
@@ -10,7 +11,9 @@ function FooterPresenter() {
         </S.InfoSection>
         <S.InfoSection>
           <div>깃허브 :&nbsp;</div>
-          <div>https://github.com/acwell94</div>
+          <Link href="https://github.com/acwell94">
+            https://github.com/acwell94
+          </Link>
         </S.InfoSection>
         <S.InfoSection>
           <div>이메일 :&nbsp;</div>
