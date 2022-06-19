@@ -45,7 +45,7 @@ function IntroPresenter() {
         </S.LogoArticle>
       </S.ImgSection>
       <S.OutTroSection>
-        <S.OutTroWrite>같이 가치 있는 캠핑</S.OutTroWrite>
+        <S.OutTroWrite>같이 그리고 가치 있는 캠핑</S.OutTroWrite>
         <S.OutTroLogo>with:Camp</S.OutTroLogo>
       </S.OutTroSection>
     </S.Main>

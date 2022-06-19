@@ -1,7 +1,7 @@
 import onClickMove from "../../../hooks/useMove";
 import * as S from "./Header.styles";
 
-function HeaderPresenter(props) {
+function HeaderPresenter() {
   const { onClickMovetoPage } = onClickMove();
 
   return (

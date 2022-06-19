@@ -3,9 +3,9 @@ import { useState } from "react";
 
 function onClickMove() {
   const router = useRouter();
-  const [movePage, setMovePage] = useState("/");
+  const [movePage, setMovePage] = useState<string>("/");
 
-  const onClickMovetoPage = (path) => () => {
+  const onClickMovetoPage = (path: string) => () => {
     setMovePage(path);
     router.push(path);
   };
