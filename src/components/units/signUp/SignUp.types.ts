@@ -4,9 +4,15 @@ export interface ISignUpData {
   name?: string;
 }
 
+export interface ILoginData {
+  email?: string;
+  password?: string;
+}
+
 export interface ISignUpContainer {
   register: any;
   handleSubmit: any;
   formState: any;
-  onClickSubmit: (data: ISignUpData) => void;
+  onClickSubmit?: (data: ISignUpData) => void;
+  onClickLogin?: (data: ILoginData) => void;
 }

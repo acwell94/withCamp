@@ -64,6 +64,13 @@ export const Input = styled.input`
   font-size: 14px;
 `;
 
+export const ErrorMsg = styled.div`
+  font-size: 15px;
+  font-weight: 700;
+  color: red;
+  padding: 10px 0px 0px 0px;
+`;
+
 export const ButtonSection = styled.div`
   padding: 20px 0px;
 `;

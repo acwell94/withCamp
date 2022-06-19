@@ -43,9 +43,9 @@ export const HeaderUserSection = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 15%;
-  padding: 0px 15px;
 `;
 
 export const UserArticle = styled.div`
   cursor: pointer;
+  font-size: 14px;
 `;
