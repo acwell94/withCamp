@@ -17,6 +17,7 @@ function IntroPresenter() {
         </S.LogoArticle>
         <S.WriteCommon>다양한 사람들과 즐거운 캠핑을 즐기세요.</S.WriteCommon>
       </S.WriteSection>
+
       <S.ImgSection>
         <div>
           <S.Img src="/images/campMap.png" />

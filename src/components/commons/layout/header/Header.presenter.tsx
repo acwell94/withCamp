@@ -13,7 +13,9 @@ function HeaderPresenter(props: IHeaderContainer) {
         </S.LogoSection>
         <S.HeaderNav>
           <S.NavMenu onClick={onClickMovetoPage("/Intro")}>소개</S.NavMenu>
-          <S.NavMenu>전국캠핑장 현황</S.NavMenu>
+          <S.NavMenu onClick={onClickMovetoPage("/campmap")}>
+            전국캠핑장 현황
+          </S.NavMenu>
           <S.NavMenu onClick={onClickMovetoPage("/freeboard")}>
             자유게시판
           </S.NavMenu>
