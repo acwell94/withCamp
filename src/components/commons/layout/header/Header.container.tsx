@@ -8,7 +8,7 @@ function HeaderContainer() {
   const { data: fetchUserData } = useQuery(FETCH_USER_LOGGED_IN);
   const [logoutUser] = useMutation(LOGOUT_USER);
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [campingData, setCampingData] = useRecoilState(campingDataState);
+  const [, setCampingData] = useRecoilState(campingDataState);
 
   const onClickLogout = async () => {
     setAccessToken("");
