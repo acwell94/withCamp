@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
-import FreeBoardPresenter from "./FreeBoard.presenter";
 import {
   FETCH_BOARDS,
   FETCH_BOARDS_COUNT,
   FETCH_BOARDS_OF_THE_BEST,
-} from "./FreeBoard.queries";
+} from "../freeBoardCommon/FreeBoard.queries";
+import FreeBoardListPresenter from "./FreeBoardList.presenter";
 
-function FreeBoardContainer() {
+function FreeBoardListContainer() {
   const { data: fetchBoardsData, refetch: fetchBoardsRefetch } =
     useQuery(FETCH_BOARDS);
   const { data: fetchBoardsCountData, refetch: fetchBoardsCountRefetch } =
@@ -15,7 +15,7 @@ function FreeBoardContainer() {
   const { data: fetchBestBoardsData } = useQuery(FETCH_BOARDS_OF_THE_BEST);
 
   return (
-    <FreeBoardPresenter
+    <FreeBoardListPresenter
       fetchBoardsData={fetchBoardsData}
       fetchBoardsCountData={fetchBoardsCountData}
       fetchBestBoardsData={fetchBestBoardsData}
@@ -25,4 +25,4 @@ function FreeBoardContainer() {
   );
 }
 
-export default FreeBoardContainer;
+export default FreeBoardListContainer;

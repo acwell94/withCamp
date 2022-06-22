@@ -1,7 +1,7 @@
-import FreeBoardContainer from "../../src/components/units/freeBoard/FreeBoard.container";
+import FreeBoardListContainer from "../../src/components/units/freeBoard/freeBoardList/FreeBoardList.container";
 
-function FreeBoardList() {
-  return <FreeBoardContainer />;
+function FreeBoardListPage() {
+  return <FreeBoardListContainer />;
 }
 
-export default FreeBoardList;
+export default FreeBoardListPage;

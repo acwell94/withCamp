@@ -1,10 +1,11 @@
-import * as S from "./FreeBoard.styles";
-import { IFreeBoardContainer } from "./FreeBoard.types";
+import * as S from "./FreeBoardList.styles";
+import { IFreeBoardListContainer } from "../freeBoardCommon/FreeBoard.types";
 import { v4 as uuidv4 } from "uuid";
-import PaginationContainer from "../../commons/pagination/Pagination.container";
-import onClickMove from "../../hooks/useMove";
+import onClickMove from "../../../hooks/useMove";
+import PaginationContainer from "../../../commons/pagination/Pagination.container";
+import CommonButton from "../../../commons/libraries/Button";
 
-function FreeBoardPresenter(props: IFreeBoardContainer) {
+function FreeBoardListPresenter(props: IFreeBoardListContainer) {
   const { onClickMovetoPage } = onClickMove();
   console.log(props.fetchBestBoardsData?.fetchBoardsOfTheBest);
   return (
@@ -62,10 +63,10 @@ function FreeBoardPresenter(props: IFreeBoardContainer) {
           </S.ContentsListBorder>
         </S.ContentsArticle>
         <S.ButtonSection>
-          <S.Button
+          <CommonButton
             type="button"
             contents="등록하기"
-            onClick={onClickMovetoPage("/")}
+            onClick={onClickMovetoPage("/freeboard/write")}
           />
         </S.ButtonSection>
         <div>
@@ -79,4 +80,4 @@ function FreeBoardPresenter(props: IFreeBoardContainer) {
   );
 }
 
-export default FreeBoardPresenter;
+export default FreeBoardListPresenter;

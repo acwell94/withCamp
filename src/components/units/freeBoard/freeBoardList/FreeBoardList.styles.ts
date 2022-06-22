@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import CommonButton from "../../commons/libraries/Button";
 
 export const Main = styled.div`
   display: flex;
@@ -131,20 +130,4 @@ export const ButtonSection = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   padding: 30px 0px;
-`;
-
-export const Button = styled(CommonButton)`
-  padding: 10px 42px;
-  background: #fff;
-  border: 2px solid #dadada;
-  border-radius: 10px;
-  color: #676767;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    color: #dd7202;
-    border: 2px solid #dd7202;
-  }
 `;

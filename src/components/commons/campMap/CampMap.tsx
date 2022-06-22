@@ -27,7 +27,6 @@ function CampKaKaoMapPage() {
             service: el.sbrsCl,
             tel: el.tel,
             latlng: new window.kakao.maps.LatLng(el.mapY, el.mapX),
-            // latlng: new window.kakao.maps.LatLng(33.450879, 126.56994),
           })
         );
 
@@ -82,6 +81,7 @@ function CampKaKaoMapPage() {
             makeOutListener(infowindow)
           );
         }
+
         // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
         function makeOverListener(map: any, marker: any, infowindow: any) {
           return function () {
