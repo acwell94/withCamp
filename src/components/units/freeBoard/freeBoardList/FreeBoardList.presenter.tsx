@@ -7,7 +7,7 @@ import CommonButton from "../../../commons/libraries/Button";
 
 function FreeBoardListPresenter(props: IFreeBoardListContainer) {
   const { onClickMovetoPage } = onClickMove();
-  console.log(props.fetchBestBoardsData?.fetchBoardsOfTheBest);
+
   return (
     <S.Main>
       <S.MainTitle>자유게시판</S.MainTitle>
@@ -16,7 +16,11 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
           <S.WriteCommon>베스트 게시물</S.WriteCommon>
           <S.BestContentsCss>
             {props.fetchBestBoardsData?.fetchBoardsOfTheBest.map((el: any) => (
-              <S.BestContentsItemSection key={uuidv4()}>
+              <S.BestContentsItemSection
+                key={uuidv4()}
+                id={el._id}
+                onClick={onClickMovetoPage(`/freeboard/${el._id}`)}
+              >
                 <S.ItemImgArticle>
                   <S.ItemImg
                     src={
@@ -53,7 +57,11 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
           </S.ContentsArticleTitle>
           <S.ContentsListBorder>
             {props.fetchBoardsData?.fetchBoards.map((el, index) => (
-              <S.ContentsArticleList key={uuidv4()} id={el._id}>
+              <S.ContentsArticleList
+                key={uuidv4()}
+                id={el._id}
+                onClick={onClickMovetoPage(`/freeboard/${el._id}`)}
+              >
                 <S.ArticleElement>{10 - index}</S.ArticleElement>
                 <S.ArticleElement>{el.title}</S.ArticleElement>
                 <S.ArticleElement>{el.writer} 님</S.ArticleElement>

@@ -28,3 +28,9 @@ export interface IFreeBoardWriteContainer {
   fileUrls: string[];
   onChangeFileUrls: (fileUrl: string, index: number) => void;
 }
+
+export interface IFreeBoardDetailContainer {
+  fetchBoardData?: any;
+  onClickLike: () => void;
+  onClickDisLike: () => void;
+}
