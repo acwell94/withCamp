@@ -17,7 +17,7 @@ interface IFreeBoardWritePresenter {
   fileUrl: string;
   onChangeFileUrls: (fileUrl: string, index: number) => void;
   register: any;
-  defaultFileUrl: string;
+  defaultFileUrl?: string;
 }
 
 function FileUploadContainer(props: IFreeBoardWritePresenter) {

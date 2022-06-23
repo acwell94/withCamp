@@ -4,10 +4,12 @@ export const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 100%;
-  border-bottom: 1px solid #e5e5e5;
+
   padding: 20px 30px;
   font-weight: 700;
+  background-color: transparent;
 `;
 
 export const HeaderPage = styled.div`

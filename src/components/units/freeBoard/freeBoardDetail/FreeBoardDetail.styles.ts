@@ -62,7 +62,8 @@ export const LikeArticle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0px 0px 0px;
+  padding: 50px 0px 50px 0px;
+  border-bottom: 2px solid #676767;
 `;
 
 export const LikeDiv = styled.div`
@@ -75,4 +76,14 @@ export const LikeDiv = styled.div`
 
 export const LikeImg = styled.img`
   width: 50px;
+`;
+
+export const ButtonArticle = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 50px 0px 0px 0px;
+`;
+
+export const EditButtonDiv = styled.div`
+  padding: 0px 0px 0px 20px;
 `;

@@ -6,14 +6,18 @@ import CommonShortInput from "../../../commons/libraries/ShortInput";
 import CommonLongInput from "../../../commons/libraries/LongInput";
 import FileUploadContainer from "../../../commons/fileUpload/FileUpload.container";
 import { IFreeBoardWriteContainer } from "../freeBoardCommon/FreeBoard.types";
-import CommonButton from "../../../commons/libraries/Button";
+import ToogleButton from "../../../commons/libraries/ToogleButtony";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
   return (
     <S.Main>
       <S.MainTitle>게시글 쓰기</S.MainTitle>
-      <S.ContentsSection onSubmit={props.handleSubmit(props.onClickReg)}>
+      <S.ContentsSection
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickEdit : props.onClickReg
+        )}
+      >
         <S.ContentsInfoArticle>
           <div>
             <S.ContentsTitle>
@@ -51,7 +55,10 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
           />
         </S.ContentsArticle>
         <div>
-          <S.ContentsTitle>내용</S.ContentsTitle>
+          <S.ContentsTitle>
+            내용
+            <S.ErrorMsg>{props.formState.errors.contents?.message}</S.ErrorMsg>
+          </S.ContentsTitle>
           <ReactQuill
             onChange={props.onChangeContents}
             value={props.getValues("contents") || ""}
@@ -80,13 +87,16 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
                 fileUrl={el}
                 onChangeFileUrls={props.onChangeFileUrls}
                 register={props.register}
-                defaultFileUrl={props.fetchData?.images || ""}
               />
             ))}
           </S.FileUploadArticle>
         </div>
         <S.ButtonArticle>
-          <CommonButton type="submit" contents="등록하기" />
+          <ToogleButton
+            type="submit"
+            contents="등록하기"
+            isActive={props.isComplete}
+          />
         </S.ButtonArticle>
       </S.ContentsSection>
     </S.Main>

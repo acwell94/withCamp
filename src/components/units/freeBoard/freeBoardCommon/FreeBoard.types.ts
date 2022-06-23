@@ -9,7 +9,7 @@ export interface IFreeBoardListContainer {
   totalItemCount?: number;
 }
 
-export interface IRegData {
+export interface IData {
   writer: string;
   password: string;
   title: string;
@@ -23,10 +23,14 @@ export interface IFreeBoardWriteContainer {
   handleSubmit: any;
   getValues: any;
   formState: any;
-  onClickReg: (data: IRegData) => void;
+  onClickReg: (data: IData) => void;
   onChangeContents: (value: string) => void;
   fileUrls: string[];
   onChangeFileUrls: (fileUrl: string, index: number) => void;
+  isComplete: boolean;
+  onClickEdit: (data: IData) => void;
+  isEdit: boolean | undefined;
+  fetchBoardData: Pick<IQuery, "fetchBoard">;
 }
 
 export interface IFreeBoardDetailContainer {

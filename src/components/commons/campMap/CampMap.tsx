@@ -101,7 +101,7 @@ function CampKaKaoMapPage() {
   return (
     <div
       id="map"
-      style={{ width: "1200px", height: "1300px", borderRadius: "20px" }}
+      style={{ width: "1000px", height: "800px", borderRadius: "20px" }}
     ></div>
   );
 }

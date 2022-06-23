@@ -1,12 +1,21 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { CREATE_BOARD } from "../freeBoardCommon/FreeBoard.queries";
+import {
+  CREATE_BOARD,
+  FETCH_BOARD,
+  UPDATE_BOARD,
+} from "../freeBoardCommon/FreeBoard.queries";
 import FreeBoardWritePresenter from "./FreeBoardWrite.presenter";
-import { useState } from "react";
-import { IRegData } from "../freeBoardCommon/FreeBoard.types";
+import { useEffect, useState } from "react";
+import { IData } from "../freeBoardCommon/FreeBoard.types";
+import _ from "lodash";
+
+interface IFreeBoardEditPage {
+  isEdit?: boolean;
+}
 
 const schema = yup.object({
   writer: yup
@@ -23,14 +32,19 @@ const schema = yup.object({
     .string()
     .min(1, "제목은 최소 1글자 이상입니다.")
     .required("제목은 필수 입력 사항입니다."),
+  contents: yup.string().required("내용은 필수 입력 사항입니다."),
 });
 
-function FreeBoardWriteContainer() {
+function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
   const router = useRouter();
 
   const [createBoard] = useMutation(CREATE_BOARD);
-
+  const [updateBoard] = useMutation(UPDATE_BOARD);
+  const { data: fetchBoardData } = useQuery(FETCH_BOARD, {
+    variables: { boardId: String(router.query.boardId) },
+  });
   const [fileUrls, setFileUrls] = useState(["", "", ""]);
+  const [isComplete, setIsComplete] = useState(false);
 
   const { register, handleSubmit, formState, setValue, trigger, getValues } =
     useForm({
@@ -49,7 +63,7 @@ function FreeBoardWriteContainer() {
     setFileUrls(newFileUrls);
   };
 
-  const onClickReg = async (data: IRegData) => {
+  const onClickReg = async (data: IData) => {
     try {
       const result = await createBoard({
         variables: {
@@ -63,9 +77,51 @@ function FreeBoardWriteContainer() {
           },
         },
       });
+      alert("게시글 등록이 완료되었습니다.");
       router.push(`/freeboard/${result.data.createBoard._id}`);
     } catch (error) {}
   };
+
+  useEffect(() => {
+    _.isEmpty(formState.errors) ? setIsComplete(true) : setIsComplete(false);
+  }, [_.isEmpty(formState.errors)]);
+
+  const onClickEdit = async (data: IData) => {
+    try {
+      const result = await updateBoard({
+        variables: {
+          boardId: router.query.boardId,
+          password: data.password,
+          updateBoardInput: {
+            title: data.title ? data.title : fetchBoardData?.fetchBoard.title,
+            contents: data.contents
+              ? data.contents
+              : fetchBoardData?.fetchBoard.contents,
+            youtubeUrl: data.youtubeUrl
+              ? data.youtubeUrl
+              : fetchBoardData?.fetchBoard.youtubeUrl,
+            images: fetchBoardData?.fetchBoard.images
+              ? fetchBoardData?.fetchBoard.images
+              : fileUrls,
+          },
+        },
+      });
+      alert("게시글 수정이 완료되었습니다.");
+      router.push(`/freeboard/${result.data.createBoard._id}`);
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    setValue("writer", fetchBoardData?.fetchBoard.writer);
+    setValue("title", fetchBoardData?.fetchBoard.title);
+    setValue("contents", fetchBoardData?.fetchBoard.contents);
+    setValue("youtubeUrl", fetchBoardData?.fetchBoard.youtubeUrl);
+    if (fetchBoardData?.fetchBoard.images.length) {
+      setFileUrls([...fetchBoardData?.fetchBoard.images]);
+    }
+  }, [fetchBoardData]);
 
   return (
     <FreeBoardWritePresenter
@@ -77,6 +133,10 @@ function FreeBoardWriteContainer() {
       onChangeContents={onChangeContents}
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
+      isComplete={isComplete}
+      onClickEdit={onClickEdit}
+      isEdit={props.isEdit}
+      fetchBoardData={fetchBoardData}
     />
   );
 }

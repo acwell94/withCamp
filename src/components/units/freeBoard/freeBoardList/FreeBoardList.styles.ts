@@ -44,6 +44,7 @@ export const BestContentsCss = styled.div`
 
 export const BestContentsItemSection = styled.div`
   width: 23%;
+  cursor: pointer;
 `;
 
 export const ItemImgArticle = styled.div`
@@ -123,6 +124,7 @@ export const ContentsArticleList = styled.div`
   justify-content: space-between;
   padding: 10px 0px;
   border-bottom: 1px solid #e5e5e5;
+  cursor: pointer;
 `;
 
 export const ButtonSection = styled.div`

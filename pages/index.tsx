@@ -1,7 +1,7 @@
-export default function Home() {
-  return (
-    <div>
-      <div>하이!</div>
-    </div>
-  );
+import MainContainer from "../src/components/units/main/Main.container";
+
+function MainPage() {
+  return <MainContainer />;
 }
+
+export default MainPage;

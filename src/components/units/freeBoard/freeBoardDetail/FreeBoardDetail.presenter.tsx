@@ -3,9 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 import Dompurify from "dompurify";
 import ReactPlayer from "react-player";
 import { IFreeBoardDetailContainer } from "../freeBoardCommon/FreeBoard.types";
+import CommonButton from "../../../commons/libraries/Button";
+import onClickMove from "../../../hooks/useMove";
+import FreeBoardCommentListContainer from "../../freeBoardComment/freeBoardCommentList/FreeBoardCommentList.container";
+import FreeBoardCommentWriteContainer from "../../freeBoardComment/freeBoardCommenWrite/FreeBoardCommentWrite.container";
 
 function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
-  console.log(props.fetchBoardData?.fetchBoard);
+  const { onClickMovetoPage } = onClickMove();
+
   return (
     <S.Main>
       <S.MainTitle>
@@ -50,6 +55,24 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
             />
           )}
         </S.ContentsBodyArticle>
+        <S.ButtonArticle>
+          <div>
+            <CommonButton
+              type="button"
+              contents="목록으로"
+              onClick={onClickMovetoPage("/freeboard")}
+            />
+          </div>
+          <S.EditButtonDiv>
+            <CommonButton
+              type="button"
+              contents="수정하기"
+              onClick={onClickMovetoPage(
+                `/freeboard/${props.fetchBoardData?.fetchBoard._id}/edit`
+              )}
+            />
+          </S.EditButtonDiv>
+        </S.ButtonArticle>
         <S.LikeArticle>
           <S.LikeDiv>
             <S.LikeImg
@@ -68,6 +91,12 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
             <div>{props.fetchBoardData?.fetchBoard.dislikeCount}</div>
           </S.LikeDiv>
         </S.LikeArticle>
+        <div>
+          <FreeBoardCommentWriteContainer />
+        </div>
+        <div>
+          <FreeBoardCommentListContainer />
+        </div>
       </S.ContentsSection>
     </S.Main>
   );
