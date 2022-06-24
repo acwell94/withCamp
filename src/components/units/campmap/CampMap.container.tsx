@@ -18,7 +18,8 @@ function CampMapContainer() {
         console.log(res);
         setLoading(false);
         setCampingData(res.data?.response.body.items.item);
-      });
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {

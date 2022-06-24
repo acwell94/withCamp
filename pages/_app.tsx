@@ -16,10 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <ApolloSetting>
           <Head>
-            <meta
-              httpEquiv="Content-Security-Policy"
-              content="upgrade-insecure-requests"
-            />
+            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           </Head>
           <Global styles={globalstyles} />
           <Layout>
