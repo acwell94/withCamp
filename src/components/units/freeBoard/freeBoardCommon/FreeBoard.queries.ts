@@ -38,6 +38,10 @@ export const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!) {
     createBoard(createBoardInput: $createBoardInput) {
       _id
+      boardAddress {
+        zipcode
+        address
+      }
     }
   }
 `;
@@ -54,6 +58,11 @@ export const FETCH_BOARD = gql`
       dislikeCount
       images
       createdAt
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

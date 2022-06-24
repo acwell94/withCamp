@@ -1,7 +1,75 @@
 import FreeBoardDetailContainer from "../../../src/components/units/freeBoard/freeBoardDetail/FreeBoardDetail.container";
+import { gql, request } from "graphql-request";
 
-function FreeBoardDetailPage() {
-  return <FreeBoardDetailContainer />;
+interface ISSR {
+  fetchBoardData: {
+    _id: string;
+    writer: string;
+    title: string;
+    contents: string;
+    youtubeUrl: string;
+    likeCount: string;
+    dislikeCount: string;
+    images: string;
+    createdAt: string;
+    boardAddress: any;
+  };
 }
 
-export default FreeBoardDetailPage;
+export default function FreeBoardDetailPage(props: ISSR) {
+  return <FreeBoardDetailContainer fetchBoardData={props.fetchBoardData} />;
+}
+
+const FETCH_BOARD: any = gql`
+  query fetchBoard($boardId: ID!) {
+    fetchBoard(boardId: $boardId) {
+      _id
+      writer
+      title
+      contents
+      youtubeUrl
+      likeCount
+      dislikeCount
+      images
+      createdAt
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
+    }
+  }
+`;
+
+export const getServerSideProps = async (context: any) => {
+  console.log(context, "99");
+  const result = await request(
+    "https://backend06.codebootcamp.co.kr/graphql",
+    FETCH_BOARD,
+    {
+      boardId: context.query.boardId,
+    }
+  );
+
+  if (!result) {
+    return alert("하이");
+  }
+  console.log(context, "1010");
+
+  return {
+    props: {
+      fetchBoardData: {
+        _id: result.fetchBoard._id,
+        writer: result.fetchBoard.writer,
+        title: result.fetchBoard.title,
+        contents: result.fetchBoard.contents,
+        youtubeUrl: result.fetchBoard.youtubeUrl,
+        likeCount: result.fetchBoard.likeCount,
+        dislikeCount: result.fetchBoard.dislikeCount,
+        images: result.fetchBoard.images,
+        createdAt: result.fetchBoard.createdAt,
+        boardAddress: result.fetchBoard.boardAddress,
+      },
+    },
+  };
+};

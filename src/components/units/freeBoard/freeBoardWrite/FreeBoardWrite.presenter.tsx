@@ -7,6 +7,7 @@ import CommonLongInput from "../../../commons/libraries/LongInput";
 import FileUploadContainer from "../../../commons/fileUpload/FileUpload.container";
 import { IFreeBoardWriteContainer } from "../freeBoardCommon/FreeBoard.types";
 import ToogleButton from "../../../commons/libraries/ToogleButtony";
+import CampKaKaoMapWritePage from "../../../commons/campMapWrite/CampMapWrite";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
@@ -53,6 +54,12 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
             placeholder="제목을 입력해주세요."
             register={props.register("title")}
           />
+        </S.ContentsArticle>
+        <S.ContentsArticle>
+          <S.ContentsTitle>
+            모임 장소 <S.SmallInfo>(필수는 아닙니다)</S.SmallInfo>
+          </S.ContentsTitle>
+          <CampKaKaoMapWritePage setAddress={props.setAddress} />
         </S.ContentsArticle>
         <div>
           <S.ContentsTitle>

@@ -8,20 +8,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "antd/dist/antd.css";
 import Layout from "../src/components/commons/layout";
-import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <RecoilRoot>
         <ApolloSetting>
-          <Head>
-            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta
-              httpEquiv="Content-Security-Policy"
-              content="upgrade-insecure-requests"
-            ></meta>
-          </Head>
           <Global styles={globalstyles} />
           <Layout>
             <Component {...pageProps} />

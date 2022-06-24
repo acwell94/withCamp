@@ -19,15 +19,6 @@ function IntroPresenter() {
       </S.WriteSection>
 
       <S.ImgSection>
-        <div>
-          <S.Img src="/images/campMap.png" />
-        </div>
-        <S.LogoArticle>
-          <S.MainLogo>with:Camp</S.MainLogo>
-          <S.WriteCommon>에서 전국의 캠핑장을 확인해 보세요.</S.WriteCommon>
-        </S.LogoArticle>
-      </S.ImgSection>
-      <S.ImgSection>
         <S.LogoArticle>
           <S.MainLogo>with:Camp</S.MainLogo>
           <S.WriteCommon>에서 같이 캠핑갈 사람들을 만나보세요.</S.WriteCommon>

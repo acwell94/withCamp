@@ -7,6 +7,7 @@ import CommonButton from "../../../commons/libraries/Button";
 import onClickMove from "../../../hooks/useMove";
 import FreeBoardCommentListContainer from "../../freeBoardComment/freeBoardCommentList/FreeBoardCommentList.container";
 import FreeBoardCommentWriteContainer from "../../freeBoardComment/freeBoardCommenWrite/FreeBoardCommentWrite.container";
+import CampKaKaoMapDetailPage from "../../../commons/campMapDetail/CampMapDetail";
 
 function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
   const { onClickMovetoPage } = onClickMove();
@@ -14,19 +15,17 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
   return (
     <S.Main>
       <S.MainTitle>
-        자유게시판 &gt; {props.fetchBoardData?.fetchBoard.writer} 님의 글
+        자유게시판 &gt; {props.fetchBoardData?.writer} 님의 글
       </S.MainTitle>
       <S.ContentsSection>
-        <S.ContentsTitle>
-          {props.fetchBoardData?.fetchBoard.title}
-        </S.ContentsTitle>
+        <S.ContentsTitle>{props.fetchBoardData?.title}</S.ContentsTitle>
         <S.WriterDate>
-          {props.fetchBoardData?.fetchBoard.writer} 님 |{" "}
-          {props.fetchBoardData?.fetchBoard.createdAt.slice(0, 10)}
+          {props.fetchBoardData?.writer} 님 |{" "}
+          {props.fetchBoardData?.createdAt.slice(0, 10)}
         </S.WriterDate>
         <S.ContentsBodyArticle>
           {/* <S.ContentImageArticle> */}
-          {props.fetchBoardData?.fetchBoard.images
+          {props.fetchBoardData?.images
             ?.filter((el: string) => el)
             .map((el: string[]) => (
               <S.Image
@@ -35,19 +34,30 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               />
             ))}
           {/* </S.ContentImageArticle> */}
-          {typeof window !== "undefined" && (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: Dompurify.sanitize(
-                  props.fetchBoardData?.fetchBoard.contents
-                ),
-              }}
-            />
+          <div>
+            {typeof window !== "undefined" && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: Dompurify.sanitize(props.fetchBoardData?.contents),
+                }}
+              />
+            )}
+          </div>
+          {!props.fetchBoardData?.boardAddress?.address.length ? (
+            <S.NoMapMessage>모임장소가 없네요...ㅠㅠ</S.NoMapMessage>
+          ) : (
+            <S.MapBox>
+              <CampKaKaoMapDetailPage
+                lat={props.fetchBoardData?.boardAddress?.address}
+                lng={props.fetchBoardData?.boardAddress?.zipcode}
+                placeName={props.fetchBoardData?.boardAddress?.addressDetail}
+              />
+            </S.MapBox>
           )}
 
-          {props.fetchBoardData?.fetchBoard.youtubeUrl && (
+          {props.fetchBoardData?.youtubeUrl && (
             <ReactPlayer
-              url={String(props.fetchBoardData?.fetchBoard.youtubeUrl)}
+              url={String(props.fetchBoardData?.youtubeUrl)}
               playing={true}
               muted={true}
               width="700px"
@@ -68,7 +78,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               type="button"
               contents="수정하기"
               onClick={onClickMovetoPage(
-                `/freeboard/${props.fetchBoardData?.fetchBoard._id}/edit`
+                `/freeboard/${props.fetchBoardData?._id}/edit`
               )}
             />
           </S.EditButtonDiv>
@@ -80,7 +90,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               src="/images/like.png
             "
             />
-            <div>{props.fetchBoardData?.fetchBoard.likeCount}</div>
+            <div>{props.fetchBoardData?.likeCount}</div>
           </S.LikeDiv>
           <S.LikeDiv>
             <S.LikeImg
@@ -88,7 +98,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               src="/images/dislike.png
             "
             />
-            <div>{props.fetchBoardData?.fetchBoard.dislikeCount}</div>
+            <div>{props.fetchBoardData?.dislikeCount}</div>
           </S.LikeDiv>
         </S.LikeArticle>
         <div>

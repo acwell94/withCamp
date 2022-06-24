@@ -56,3 +56,8 @@ export const ButtonArticle = styled.div`
   justify-content: center;
   padding: 50px 0px 0px 0px;
 `;
+
+export const SmallInfo = styled.span`
+  font-size: 15px;
+  color: gray;
+`;

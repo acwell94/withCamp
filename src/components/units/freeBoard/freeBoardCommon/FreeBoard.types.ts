@@ -31,6 +31,7 @@ export interface IFreeBoardWriteContainer {
   onClickEdit: (data: IData) => void;
   isEdit: boolean | undefined;
   fetchBoardData: Pick<IQuery, "fetchBoard">;
+  setAddress: any;
 }
 
 export interface IFreeBoardDetailContainer {

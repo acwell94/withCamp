@@ -76,6 +76,7 @@ export const LikeDiv = styled.div`
 
 export const LikeImg = styled.img`
   width: 50px;
+  height: 50px;
 `;
 
 export const ButtonArticle = styled.div`
@@ -86,4 +87,17 @@ export const ButtonArticle = styled.div`
 
 export const EditButtonDiv = styled.div`
   padding: 0px 0px 0px 20px;
+`;
+
+export const MapBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 30px 0px;
+`;
+
+export const NoMapMessage = styled.div`
+  padding: 30px 0px;
+  font-size: 30px;
+  font-weight: 700;
 `;

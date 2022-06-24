@@ -46,6 +46,8 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
   const [fileUrls, setFileUrls] = useState(["", "", ""]);
   const [isComplete, setIsComplete] = useState(false);
 
+  const [address, setAddress] = useState<any>("");
+
   const { register, handleSubmit, formState, setValue, trigger, getValues } =
     useForm({
       resolver: yupResolver(schema),
@@ -73,10 +75,16 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
             title: data.title,
             contents: data.contents,
             youtubeUrl: data.youtubeUrl,
+            boardAddress: {
+              zipcode: address.x,
+              address: address.y,
+              addressDetail: address.place_name,
+            },
             images: fileUrls,
           },
         },
       });
+
       alert("게시글 등록이 완료되었습니다.");
       router.push(`/freeboard/${result.data.createBoard._id}`);
     } catch (error) {}
@@ -137,6 +145,7 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
       onClickEdit={onClickEdit}
       isEdit={props.isEdit}
       fetchBoardData={fetchBoardData}
+      setAddress={setAddress}
     />
   );
 }
