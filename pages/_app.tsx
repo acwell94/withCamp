@@ -17,6 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ApolloSetting>
           <Head>
             <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta
+              httpEquiv="Content-Security-Policy"
+              content="upgrade-insecure-requests"
+            ></meta>
           </Head>
           <Global styles={globalstyles} />
           <Layout>
