@@ -8,6 +8,7 @@ import onClickMove from "../../../hooks/useMove";
 import FreeBoardCommentListContainer from "../../freeBoardComment/freeBoardCommentList/FreeBoardCommentList.container";
 import FreeBoardCommentWriteContainer from "../../freeBoardComment/freeBoardCommenWrite/FreeBoardCommentWrite.container";
 import CampKaKaoMapDetailPage from "../../../commons/campMapDetail/CampMapDetail";
+import { getDateDot } from "../../../commons/libraries/Date";
 
 function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
   const { onClickMovetoPage } = onClickMove();
@@ -21,7 +22,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
         <S.ContentsTitle>{props.fetchBoardData?.title}</S.ContentsTitle>
         <S.WriterDate>
           {props.fetchBoardData?.writer} 님 |{" "}
-          {props.fetchBoardData?.createdAt.slice(0, 10)}
+          {getDateDot(props.fetchBoardData?.createdAt)}
         </S.WriterDate>
         <S.ContentsBodyArticle>
           {/* <S.ContentImageArticle> */}
@@ -82,6 +83,13 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               )}
             />
           </S.EditButtonDiv>
+          <div>
+            <CommonButton
+              type="button"
+              contents="삭제하기"
+              onClick={props.onClickDelete}
+            />
+          </div>
         </S.ButtonArticle>
         <S.LikeArticle>
           <S.LikeDiv>

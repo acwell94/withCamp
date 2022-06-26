@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import {
+  DELETE_BOARD,
   DISLIKE_BOARD,
   FETCH_BOARD,
   LIKE_BOARD,
@@ -12,6 +13,7 @@ function FreeBoardDetailContainer(props: any) {
 
   const [likeBoard] = useMutation(LIKE_BOARD);
   const [dislikeBoard] = useMutation(DISLIKE_BOARD);
+  const [deleteBoard] = useMutation(DELETE_BOARD);
 
   const onClickLike = () => {
     likeBoard({
@@ -30,12 +32,20 @@ function FreeBoardDetailContainer(props: any) {
     });
   };
 
+  const onClickDelete = async () => {
+    deleteBoard({
+      variables: { boardId: router.query.boardId },
+    });
+    router.push(`/freeboard`);
+  };
+
   return (
     <div>
       <FreeBoardDetailPresenter
         fetchBoardData={props.fetchBoardData}
         onClickLike={onClickLike}
         onClickDisLike={onClickDisLike}
+        onClickDelete={onClickDelete}
       />
     </div>
   );

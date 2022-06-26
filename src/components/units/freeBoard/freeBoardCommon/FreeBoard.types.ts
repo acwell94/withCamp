@@ -4,6 +4,7 @@ export interface IFreeBoardListContainer {
   fetchBoardsData?: Pick<IQuery, "fetchBoards">;
   fetchBoardsCountData?: Pick<IQuery, "fetchBoardsCount">;
   fetchBestBoardsData?: Pick<IQuery, "fetchBoardsOfTheBest">;
+  fetchUsedItemsOfTheBest?: Pick<IQuery, "fetchUseditemsOfTheBest">;
   fetchBoardsCountRefetch?: any;
   fetchBoardsRefetch?: any;
   totalItemCount?: number;
@@ -38,4 +39,5 @@ export interface IFreeBoardDetailContainer {
   fetchBoardData?: any;
   onClickLike: () => void;
   onClickDisLike: () => void;
+  onClickDelete: () => void;
 }

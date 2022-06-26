@@ -16,7 +16,9 @@ function HeaderPresenter(props: IHeaderContainer) {
           <S.NavMenu onClick={onClickMovetoPage("/freeboard")}>
             자유게시판
           </S.NavMenu>
-          <S.NavMenu>with:Shop</S.NavMenu>
+          <S.NavMenu onClick={onClickMovetoPage("/freeMarket")}>
+            with:Shop
+          </S.NavMenu>
           <S.NavMenu>My Page</S.NavMenu>
         </S.HeaderNav>
 

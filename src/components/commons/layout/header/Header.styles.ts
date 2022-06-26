@@ -49,5 +49,4 @@ export const HeaderUserSection = styled.div`
 
 export const UserArticle = styled.div`
   cursor: pointer;
-  /* font-size: 14px; */
 `;

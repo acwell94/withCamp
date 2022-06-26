@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import * as S from "./Comment.styles";
 import { Modal } from "antd";
+import { getDateDot } from "../libraries/Date";
 function Comment(props: any) {
   return (
     <div>
@@ -28,7 +29,7 @@ function Comment(props: any) {
               </S.DeleteBtn>
             </S.InfoWriterRatingArticle>
 
-            <S.InfoDate>{el.createdAt.slice(0, 10)}</S.InfoDate>
+            <S.InfoDate>{getDateDot(el.createdAt)}</S.InfoDate>
           </S.CommentInfoSection>
           <S.Contents>{el.contents}</S.Contents>
         </S.Main>

@@ -65,6 +65,7 @@ export const BoardSection = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0px 0px 50px 0px;
+  width: 100%;
 `;
 
 export const BoardSectionTitle = styled.div`
@@ -137,4 +138,11 @@ export const ItemLikeCount = styled.div`
   font-size: 12px;
   color: #e5b299;
   padding: 0px 0px 0px 5px;
+`;
+
+export const BestGoodsCss = styled.div`
+  display: grid;
+  justify-content: space-between;
+  width: 100%;
+  grid-template-columns: 23% 23% 23% 23%;
 `;

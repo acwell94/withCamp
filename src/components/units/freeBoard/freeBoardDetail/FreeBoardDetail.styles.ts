@@ -86,7 +86,7 @@ export const ButtonArticle = styled.div`
 `;
 
 export const EditButtonDiv = styled.div`
-  padding: 0px 0px 0px 20px;
+  padding: 0px 20px;
 `;
 
 export const MapBox = styled.div`

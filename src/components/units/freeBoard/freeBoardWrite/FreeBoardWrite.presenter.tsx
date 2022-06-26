@@ -13,7 +13,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
   return (
     <S.Main>
-      <S.MainTitle>게시글 쓰기</S.MainTitle>
+      <S.MainTitle>{props.isEdit ? "게시글 수정" : "게시글 쓰기"}</S.MainTitle>
       <S.ContentsSection
         onSubmit={props.handleSubmit(
           props.isEdit ? props.onClickEdit : props.onClickReg
@@ -57,7 +57,12 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
         </S.ContentsArticle>
         <S.ContentsArticle>
           <S.ContentsTitle>
-            모임 장소 <S.SmallInfo>(필수는 아닙니다)</S.SmallInfo>
+            모임 장소{" "}
+            <S.SmallInfo>
+              {props.isEdit
+                ? "(미변경시 기존의 장소가 나옵니다.)"
+                : "(필수는 아닙니다)"}
+            </S.SmallInfo>
           </S.ContentsTitle>
           <CampKaKaoMapWritePage setAddress={props.setAddress} />
         </S.ContentsArticle>
@@ -101,7 +106,7 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
         <S.ButtonArticle>
           <ToogleButton
             type="submit"
-            contents="등록하기"
+            contents={props.isEdit ? "수정하기" : "등록하기"}
             isActive={props.isComplete}
           />
         </S.ButtonArticle>

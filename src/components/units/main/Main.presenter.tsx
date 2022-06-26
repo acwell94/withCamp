@@ -2,6 +2,7 @@ import onClickMove from "../../hooks/useMove";
 import * as S from "./Main.styles";
 import { v4 as uuidv4 } from "uuid";
 import { IFreeBoardListContainer } from "../freeBoard/freeBoardCommon/FreeBoard.types";
+import MarketItem from "../../commons/marketItem/MarketItem";
 function MainPresenter(props: IFreeBoardListContainer) {
   const { onClickMovetoPage } = onClickMove();
   return (
@@ -62,7 +63,17 @@ function MainPresenter(props: IFreeBoardListContainer) {
       </S.BoardSection>
       <S.BoardSection>
         <S.BoardSectionTitle>Best Shop</S.BoardSectionTitle>
-        <div>베스트 상품</div>
+
+        <S.BestGoodsCss>
+          {props.fetchUsedItemsOfTheBest?.fetchUseditemsOfTheBest.map((el) => (
+            <MarketItem
+              key={uuidv4()}
+              el={el}
+              id={el._id}
+              backGroundcolor={true}
+            />
+          ))}
+        </S.BestGoodsCss>
       </S.BoardSection>
     </S.Main>
   );

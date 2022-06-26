@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import onClickMove from "../../../hooks/useMove";
 import PaginationContainer from "../../../commons/pagination/Pagination.container";
 import CommonButton from "../../../commons/libraries/Button";
+import { getDateDot } from "../../../commons/libraries/Date";
 
 function FreeBoardListPresenter(props: IFreeBoardListContainer) {
   const { onClickMovetoPage } = onClickMove();
@@ -37,7 +38,7 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
                   <S.ItemWriter>작성자 : {el.writer}님</S.ItemWriter>
                 </S.ItemArticle>
                 <S.ItemArticle>
-                  <S.ItemCreated>{el.createdAt.slice(0, 10)}</S.ItemCreated>
+                  <S.ItemCreated>{getDateDot(el.createdAt)}</S.ItemCreated>
                   <S.BestContentsCss>
                     <S.HeartImg src="/images/Heart.png" />
                     <S.ItemLikeCount>{el.likeCount}</S.ItemLikeCount>
@@ -65,7 +66,7 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
                 <S.ArticleElement>{10 - index}</S.ArticleElement>
                 <S.ArticleElement>{el.title}</S.ArticleElement>
                 <S.ArticleElement>{el.writer} 님</S.ArticleElement>
-                <S.ArticleElement>{el.createdAt.slice(0, 10)}</S.ArticleElement>
+                <S.ArticleElement>{getDateDot(el.createdAt)}</S.ArticleElement>
               </S.ContentsArticleList>
             ))}
           </S.ContentsListBorder>

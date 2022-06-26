@@ -2,13 +2,15 @@ import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import FooterContainer from "./footer/Footer.container";
 import HeaderContainer from "./header/Header.container";
+import TopButton from "./topBtn/TopBtn";
 
-const Test = styled.div`
+const Background = styled.div`
   background-image: url("/images/main.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  position: relative;
 `;
 
 const Body = styled.div`
@@ -19,17 +21,26 @@ const Body = styled.div`
   width: 100%;
 `;
 
+const BodyTopBtn = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+`;
+
 interface ILayoutProps {
   children: ReactNode;
 }
 
 function Layout(props: ILayoutProps) {
   return (
-    <Test>
+    <Background>
       <HeaderContainer />
-      <Body>{props.children}</Body>
+      <BodyTopBtn>
+        <Body>{props.children}</Body>
+        <TopButton />
+      </BodyTopBtn>
       <FooterContainer />
-    </Test>
+    </Background>
   );
 }
 

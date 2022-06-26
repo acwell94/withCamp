@@ -108,14 +108,27 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
             youtubeUrl: data.youtubeUrl
               ? data.youtubeUrl
               : fetchBoardData?.fetchBoard.youtubeUrl,
+            boardAddress: {
+              zipcode: address.x
+                ? address.x
+                : fetchBoardData?.fetchBoard.boardAddress.zipcode,
+
+              address: address.y
+                ? address.y
+                : fetchBoardData?.fetchBoard.boardAddress.address,
+              addressDetail: address.place_name
+                ? address.place_name
+                : fetchBoardData?.fetchBoard.boardAddress.addressDetail,
+            },
             images: fetchBoardData?.fetchBoard.images
               ? fetchBoardData?.fetchBoard.images
               : fileUrls,
           },
         },
       });
+
       alert("게시글 수정이 완료되었습니다.");
-      router.push(`/freeboard/${result.data.createBoard._id}`);
+      router.push(`/freeboard/${result.data.updateBoard._id}`);
     } catch (error: any) {
       alert(error.message);
     }
