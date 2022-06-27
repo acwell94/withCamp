@@ -90,16 +90,26 @@ export const BestContentsItemSection = styled.div`
 `;
 
 export const ItemImgArticle = styled.div`
+  border-radius: 20px;
+  height: 160px;
   padding: 0px 0px 15px 0px;
+  overflow: hidden;
 `;
 
 export const ItemArrange = styled.div`
-  padding: 0px 10px;
+  padding: 10px 10px 0px 10px;
 `;
 
 export const ItemImg = styled.img`
   width: 100%;
+  height: 160px;
   border-radius: 20px;
+  transition: all 0.2s linear;
+  &:hover {
+    transform: scale(1.2);
+    padding: 0px 0px 15px 0px;
+    border-radius: 20px;
+  }
 `;
 
 export const ItemArticle = styled.div`

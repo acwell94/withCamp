@@ -25,7 +25,6 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
           {getDateDot(props.fetchBoardData?.createdAt)}
         </S.WriterDate>
         <S.ContentsBodyArticle>
-          {/* <S.ContentImageArticle> */}
           {props.fetchBoardData?.images
             ?.filter((el: string) => el)
             .map((el: string[]) => (
@@ -34,7 +33,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
                 src={`https://storage.googleapis.com/${el}`}
               />
             ))}
-          {/* </S.ContentImageArticle> */}
+
           <div>
             {typeof window !== "undefined" && (
               <div

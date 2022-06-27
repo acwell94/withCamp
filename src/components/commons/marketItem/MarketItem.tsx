@@ -2,12 +2,15 @@ import * as S from "./MarketItem.styles";
 
 import { PointComma } from "../libraries/point";
 import { getDateDot } from "../libraries/Date";
+import onClickMove from "../../hooks/useMove";
 
 function MarketItem(props: any) {
+  const { onClickMovetoPage } = onClickMove();
   return (
     <S.BestContentsItemSection
       id={props.el._id}
       backGroundcolor={props.backGroundcolor}
+      onClick={onClickMovetoPage(`/freeMarket/${props.el._id}`)}
     >
       <S.ItemImgArticle>
         <S.ItemImg

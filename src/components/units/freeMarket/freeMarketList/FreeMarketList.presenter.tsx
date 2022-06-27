@@ -4,8 +4,10 @@ import { v4 as uuidv4 } from "uuid";
 import InfiniteScroll from "react-infinite-scroller";
 import MarketItem from "../../../commons/marketItem/MarketItem";
 import CommonButton from "../../../commons/libraries/Button";
+import onClickMove from "../../../hooks/useMove";
 
 function FreeMarketListPresenter(props: IFreeMarketListContainer) {
+  const { onClickMovetoPage } = onClickMove();
   return (
     <S.Main>
       <S.MainTitle>with:Shop</S.MainTitle>
@@ -24,7 +26,11 @@ function FreeMarketListPresenter(props: IFreeMarketListContainer) {
           <S.ContentsTitleSection>
             <S.WriteCommon>상품 목록</S.WriteCommon>
             <div>
-              <CommonButton type="button" contents="등록하기" />
+              <CommonButton
+                type="button"
+                contents="등록하기"
+                onClick={onClickMovetoPage(`/freeMarket/write`)}
+              />
             </div>
           </S.ContentsTitleSection>
           <InfiniteScroll

@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import {
   DELETE_BOARD,
   DISLIKE_BOARD,
-  FETCH_BOARD,
   LIKE_BOARD,
 } from "../freeBoardCommon/FreeBoard.queries";
 import FreeBoardDetailPresenter from "./FreeBoardDetail.presenter";
@@ -11,32 +10,28 @@ import FreeBoardDetailPresenter from "./FreeBoardDetail.presenter";
 function FreeBoardDetailContainer(props: any) {
   const router = useRouter();
 
+  const [deleteBoard] = useMutation(DELETE_BOARD);
   const [likeBoard] = useMutation(LIKE_BOARD);
   const [dislikeBoard] = useMutation(DISLIKE_BOARD);
-  const [deleteBoard] = useMutation(DELETE_BOARD);
-
-  const onClickLike = () => {
-    likeBoard({
-      variables: { boardId: String(router.query.boardId) },
-      refetchQueries: [
-        { query: FETCH_BOARD, variables: { boardId: router.query.boardId } },
-      ],
-    });
-  };
-  const onClickDisLike = () => {
-    dislikeBoard({
-      variables: { boardId: String(router.query.boardId) },
-      refetchQueries: [
-        { query: FETCH_BOARD, variables: { boardId: router.query.boardId } },
-      ],
-    });
-  };
 
   const onClickDelete = async () => {
     deleteBoard({
       variables: { boardId: router.query.boardId },
     });
     router.push(`/freeboard`);
+  };
+
+  const onClickLike = () => {
+    likeBoard({
+      variables: { boardId: String(router.query.boardId) },
+    });
+    router.replace(`/freeboard/${router.query.boardId}`);
+  };
+  const onClickDisLike = () => {
+    dislikeBoard({
+      variables: { boardId: String(router.query.boardId) },
+    });
+    router.replace(`/freeboard/${router.query.boardId}`);
   };
 
   return (

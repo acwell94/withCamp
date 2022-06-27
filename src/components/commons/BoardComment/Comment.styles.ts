@@ -52,7 +52,6 @@ export const InfoDate = styled.div`
 `;
 
 export const Contents = styled.div`
-  font-size: 25px;
   padding: 15px 30px;
   white-space: nowrap;
   overflow: hidden;

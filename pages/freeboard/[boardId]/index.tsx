@@ -20,7 +20,7 @@ export default function FreeBoardDetailPage(props: ISSR) {
   return <FreeBoardDetailContainer fetchBoardData={props.fetchBoardData} />;
 }
 
-const FETCH_BOARD: any = gql`
+export const FETCH_BOARD: any = gql`
   query fetchBoard($boardId: ID!) {
     fetchBoard(boardId: $boardId) {
       _id
@@ -42,7 +42,6 @@ const FETCH_BOARD: any = gql`
 `;
 
 export const getServerSideProps = async (context: any) => {
-  console.log(context, "99");
   const result = await request(
     "https://backend06.codebootcamp.co.kr/graphql",
     FETCH_BOARD,
@@ -52,9 +51,8 @@ export const getServerSideProps = async (context: any) => {
   );
 
   if (!result) {
-    return alert("하이");
+    return alert("sorry,,,");
   }
-  console.log(context, "1010");
 
   return {
     props: {

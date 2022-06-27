@@ -10,16 +10,18 @@ const LongInput = styled.input`
   color: #676767;
   width: 100%;
   padding: 12px 16px;
+
   ::placeholder {
     color: #dbdbdb;
   }
 `;
 
 interface IProps {
-  type: "text" | "password";
+  type: "text" | "password" | "number";
   register?: UseFormRegisterReturn;
   placeholder?: string | undefined;
   defaultValue?: string | undefined;
+  onKeyUp?: any;
 }
 
 function CommonLongInput(props: IProps) {
@@ -27,6 +29,7 @@ function CommonLongInput(props: IProps) {
     <LongInput
       type={props.type}
       {...props.register}
+      onKeyUp={props.onKeyUp}
       placeholder={props.placeholder}
       defaultValue={props.defaultValue || ""}
     />

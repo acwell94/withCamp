@@ -72,6 +72,7 @@ export const LikeDiv = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0px 30px;
+  cursor: pointer;
 `;
 
 export const LikeImg = styled.img`

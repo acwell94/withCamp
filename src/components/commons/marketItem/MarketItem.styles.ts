@@ -6,7 +6,7 @@ interface IMarketItem {
 
 export const BestContentsItemSection = styled.div`
   cursor: pointer;
-  padding: 0px 0px 25px 0px;
+  padding: 0px 0px 10px 0px;
   background-color: ${(props: IMarketItem) =>
     props.backGroundcolor ? "#7d5a50e0" : "#fff"};
   border-radius: ${(props: IMarketItem) =>
@@ -14,19 +14,28 @@ export const BestContentsItemSection = styled.div`
 `;
 
 export const ItemImgArticle = styled.div`
+  border-radius: 20px;
   height: 200px;
   padding: 0px 0px 15px 0px;
+  overflow: hidden;
 `;
 
 export const ItemContentsSection = styled.div`
   padding: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "0px 10px" : "0px"}; ;
+    props.backGroundcolor ? "15px 10px 0px 10px" : "15px 0px 0px 0px"}; ;
 `;
 
 export const ItemImg = styled.img`
   width: 100%;
-  height: 100%;
+  height: 200px;
   border-radius: 20px;
+  transition: all 0.2s linear;
+
+  &:hover {
+    transform: scale(1.2);
+    padding: 0px 0px 15px 0px;
+    border-radius: 20px;
+  }
 `;
 
 export const ItemArticle = styled.div`
@@ -84,8 +93,4 @@ export const ItemPickedCount = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-`;
-
-export const ContentsArticle = styled.div`
-  padding: 30px 0px 0px 0px;
 `;

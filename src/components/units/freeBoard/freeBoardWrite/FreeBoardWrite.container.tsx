@@ -87,7 +87,9 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
 
       alert("게시글 등록이 완료되었습니다.");
       router.push(`/freeboard/${result.data.createBoard._id}`);
-    } catch (error) {}
+    } catch (error) {
+      alert("하이");
+    }
   };
 
   useEffect(() => {

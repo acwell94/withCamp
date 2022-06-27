@@ -1,19 +1,17 @@
 import styled from "@emotion/styled";
 
 const Button = styled.button`
-  width: 150px;
   padding: 10px 42px;
-  background: #fff;
-  border: 2px solid #dadada;
+  background: #dd7202;
+  border: 2px solid #dd7202;
   border-radius: 10px;
-  color: #676767;
+  color: #fff;
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    color: #dd7202;
-    border: 2px solid #dd7202;
+    background-color: #dc8f3e;
   }
 `;
 
@@ -23,7 +21,7 @@ interface IButtonProps {
   contents: string;
 }
 
-function CommonButton(props: IButtonProps) {
+function CommonFillButton(props: IButtonProps) {
   return (
     <Button type={props.type} onClick={props.onClick}>
       {props.contents}
@@ -31,4 +29,4 @@ function CommonButton(props: IButtonProps) {
   );
 }
 
-export default CommonButton;
+export default CommonFillButton;
