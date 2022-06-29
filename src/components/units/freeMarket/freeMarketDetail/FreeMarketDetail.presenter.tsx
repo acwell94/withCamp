@@ -80,19 +80,26 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
             </S.MapBox>
           )}
         </S.MapArticle>
-        <S.EditDeleteBtnArticle>
-          <CommonButton
-            type="button"
-            contents="수정하기"
-            onClick={onClickMovetoPage("/freeMarket")}
-          />
-          <CommonButton
-            type="button"
-            contents="삭제하기"
-            onClick={onClickMovetoPage("/freeMarket")}
-          />
-        </S.EditDeleteBtnArticle>
-        <FreeMarketCommentListContainer />
+        {props.fetchUsedItemData.seller._id ===
+        props.fetchUserData?.fetchUserLoggedIn._id ? (
+          <S.EditDeleteBtnArticle>
+            <CommonButton
+              type="button"
+              contents="수정하기"
+              onClick={onClickMovetoPage(
+                `/freeMarket/${props.fetchUsedItemData?._id}/edit`
+              )}
+            />
+            <CommonButton
+              type="button"
+              contents="삭제하기"
+              onClick={onClickMovetoPage("/freeMarket")}
+            />
+          </S.EditDeleteBtnArticle>
+        ) : (
+          ""
+        )}
+        <FreeMarketCommentListContainer fetchUserData={props.fetchUserData} />
       </S.ContentsSection>
     </S.Main>
   );

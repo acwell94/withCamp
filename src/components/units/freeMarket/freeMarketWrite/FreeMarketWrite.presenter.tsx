@@ -11,7 +11,9 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 function FreeMarketWritePresenter(props: any) {
   return (
     <S.Main>
-      <S.MainTitle>상품 등록하기</S.MainTitle>
+      <S.MainTitle>
+        {props.isEdit ? "상품 수정하기" : "상품 등록하기"}
+      </S.MainTitle>
       <S.ContentsSection onSubmit={props.handleSubmit(props.onClickReg)}>
         <div>
           <S.ContentsTitle>

@@ -15,6 +15,7 @@ function FreeMarketCommentAnswerListContainer(props) {
   return (
     <FreeMarketCommentAnswerListPresenter
       fetchUsedItemQAData={fetchUsedItemQAData}
+      fetchUserId={props.fetchUserId}
     />
   );
 }

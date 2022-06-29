@@ -1,9 +1,13 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { CREATE_USEDITEM } from "../freeMarketCommon/FreeMarket.queries";
+import {
+  CREATE_USEDITEM,
+  FETCH_USED_ITEM,
+  UPDATE_USEDITEM,
+} from "../freeMarketCommon/FreeMarket.queries";
 import FreeMarketWritePresenter from "./FreeMarketWrite.presenter";
 import * as yup from "yup";
 import _ from "lodash";
@@ -21,9 +25,13 @@ const schema = yup.object({
   contents: yup.string().required("내용은 필수 입력 사항입니다."),
 });
 
-function FreeMarketWriteContainer() {
+function FreeMarketWriteContainer(props) {
   const router = useRouter();
   const [createUseditem] = useMutation(CREATE_USEDITEM);
+  const { data: fetchUsedItemData } = useQuery(FETCH_USED_ITEM, {
+    variables: { useditemId: String(router.query.marketId) },
+  });
+  const [updateUsedItem] = useMutation(UPDATE_USEDITEM);
   const [fileUrls, setFileUrls] = useState(["", "", ""]);
   const [address, setAddress] = useState<any>("");
   const [hashArr, setHashArr] = useState<any>([]);
@@ -90,6 +98,54 @@ function FreeMarketWriteContainer() {
     setHashArr([...hashArr]);
   };
 
+  const onClickEdit = async (data) => {
+    try {
+      const result = await updateUsedItem({
+        variables: {
+          name: data.name ? data.name : fetchUsedItemData.fetchUseditem?.name,
+          remarks: data.remarks
+            ? data.remarks
+            : fetchUsedItemData.fetchUseditem?.remarks,
+          price: data.price
+            ? Number(data.price)
+            : Number(fetchUsedItemData.fetchUseditem?.price),
+          tags: data.tags ? data.tags : fetchUsedItemData.fetchUseditem?.tags,
+          contents: data.contents
+            ? data.contents
+            : fetchUsedItemData.fetchUseditem?.contents,
+          images: fetchUsedItemData.fetchUseditem?.images
+            ? fetchUsedItemData.fetchUseditem?.images
+            : fileUrls,
+          useditemAddress: {
+            zipcode: address.x
+              ? address.x
+              : fetchUsedItemData.fetchUseditem?.useditemAddress.zipcode,
+            address: address.y
+              ? address.y
+              : fetchUsedItemData.fetchUseditem?.useditemAddress.address,
+            addressDetail: address.place_name
+              ? address.place_name
+              : fetchUsedItemData.fetchUseditem?.useditemAddress.addressDetail,
+          },
+        },
+      });
+      alert("상품 수정이 완료되었습니다.");
+      router.push(`/freeMarket/${result.data.updateUsedItem._id}`);
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    setValue("name", fetchUsedItemData.fetchUseditem?.name);
+    setValue("remarks", fetchUsedItemData.fetchUseditem?.remarks);
+    setValue("price", fetchUsedItemData.fetchUseditem?.price);
+    setHashArr(fetchUsedItemData.fetchUseditem?.tags);
+    if (fetchUsedItemData.fetchUseditem?.images) {
+      setFileUrls([...fetchUsedItemData.fetchUseditem?.images]);
+    }
+  }, [fetchUsedItemData]);
+
   return (
     <FreeMarketWritePresenter
       register={register}
@@ -105,6 +161,8 @@ function FreeMarketWriteContainer() {
       onKeyUpHash={onKeyUpHash}
       onClickReg={onClickReg}
       onClickDeleteHash={onClickDeleteHash}
+      onClickEdit={onClickEdit}
+      isEdit={props.isEdit}
     />
   );
 }

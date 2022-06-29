@@ -20,4 +20,5 @@ export interface IFreeMarketDetailContainer {
     seller: any;
     useditemAddress: any;
   };
+  fetchUserData: any;
 }

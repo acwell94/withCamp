@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
-
+interface IProps {
+  isToolOpen?: boolean;
+}
 export const CommentMain = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,23 +20,25 @@ export const CommentInfoSection = styled.div`
 `;
 
 export const InfoUserTitle = styled.div`
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
 `;
 
 export const EditDeleteBtn = styled.div`
   cursor: pointer;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
 `;
 
 export const EditDeleteTool = styled.div`
+  display: ${(props: IProps) => (props.isToolOpen ? "flex" : "none")};
+  flex-direction: column;
   background-color: #fff;
   border: 1px solid black;
   padding: 10px;
   position: absolute;
-  top: 25px;
-  left: 410px;
+  top: 0px;
+  left: 405px;
 `;
 
 export const EditBtn = styled.div`
@@ -49,19 +53,23 @@ export const DeleteBtn = styled.div`
 export const ContentsSection = styled.div``;
 
 export const Contents = styled.div`
-  font-size: 20px;
+  font-size: 15px;
   width: 70%;
 `;
 
 export const Date = styled.div`
-  font-size: 13px;
+  font-size: 10px;
   color: #676767;
 `;
 
 export const ReplyBtn = styled.button`
   background-color: transparent;
   border: 1px solid #676767;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
+`;
+
+export const ReplySection = styled.div`
+  padding: 30px 0px 0px 0px;
 `;

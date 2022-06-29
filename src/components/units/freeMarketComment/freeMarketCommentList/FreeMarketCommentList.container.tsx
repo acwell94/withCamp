@@ -41,6 +41,7 @@ function FreeMarketCommentListContainer(props) {
     <FreeMarketCommentListPresenter
       fetchUsedItemQuestionsData={fetchUsedItemQuestionsData}
       loadMore={loadMore}
+      fetchUserData={props.fetchUserData}
     />
   );
 }
