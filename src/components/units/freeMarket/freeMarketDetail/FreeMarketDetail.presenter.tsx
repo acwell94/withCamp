@@ -16,8 +16,8 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
   return (
     <S.Main>
       <S.MainTitle>
-        {props.fetchUsedItemData?.seller?.name}{" "}
-        <span>님의 판매 중인 상품입니다.</span>
+        <S.Name>{props.fetchUsedItemData?.seller?.name}</S.Name> 님의 판매 중인
+        상품입니다.
       </S.MainTitle>
       <S.ContentsSection>
         <S.CarouselCss>

@@ -4,6 +4,7 @@ export interface IFreeMarketListContainer {
   fetchUsedItemsData: Pick<IQuery, "fetchUseditems">;
   fetchUsedItemsOfTheBest: Pick<IQuery, "fetchUseditemsOfTheBest">;
   loadMore: any;
+  accessToken?: any;
 }
 
 export interface IFreeMarketDetailContainer {

@@ -8,6 +8,8 @@ export interface IFreeBoardListContainer {
   fetchBoardsCountRefetch?: any;
   fetchBoardsRefetch?: any;
   totalItemCount?: number;
+  keyword?: any;
+  onChangeKeyword: (value: string) => void;
 }
 
 export interface IData {

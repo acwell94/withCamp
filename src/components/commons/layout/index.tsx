@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import FooterContainer from "./footer/Footer.container";
 import HeaderContainer from "./header/Header.container";
@@ -11,6 +12,7 @@ const Background = styled.div`
   background-position: center;
   background-attachment: fixed;
   position: relative;
+  height: 100%;
 `;
 
 const Body = styled.div`
@@ -32,12 +34,18 @@ interface ILayoutProps {
 }
 
 function Layout(props: ILayoutProps) {
+  const router = useRouter();
+
+  const TOP_BUTTON = ["/freeMarket"];
+
+  const TopBtn = TOP_BUTTON.includes(router.pathname);
+
   return (
     <Background>
       <HeaderContainer />
       <BodyTopBtn>
         <Body>{props.children}</Body>
-        <TopButton />
+        {TopBtn && <TopButton />}
       </BodyTopBtn>
       <FooterContainer />
     </Background>

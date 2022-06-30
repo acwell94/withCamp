@@ -15,6 +15,12 @@ export const MainTitle = styled.div`
   padding: 0px 0px 80px 0px;
 `;
 
+export const Name = styled.span`
+  font-size: 30px;
+  font-weight: 700;
+  color: #dd7202;
+`;
+
 export const ContentsSection = styled.div`
   display: flex;
   flex-direction: column;

@@ -19,7 +19,13 @@ function HeaderPresenter(props: IHeaderContainer) {
           <S.NavMenu onClick={onClickMovetoPage("/freeMarket")}>
             with:Shop
           </S.NavMenu>
-          <S.NavMenu onClick={onClickMovetoPage("/myPage")}>My Page</S.NavMenu>
+          <S.NavMenu
+            onClick={onClickMovetoPage(
+              props.accessToken ? "/myPage" : "/signIn"
+            )}
+          >
+            My Page
+          </S.NavMenu>
         </S.HeaderNav>
 
         {props.accessToken ? (

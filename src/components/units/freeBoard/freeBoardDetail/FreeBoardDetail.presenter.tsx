@@ -16,7 +16,8 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
   return (
     <S.Main>
       <S.MainTitle>
-        자유게시판 &gt; {props.fetchBoardData?.writer} 님의 글
+        자유게시판 &gt; <S.Name>{props.fetchBoardData?.writer}</S.Name>
+        님의 글
       </S.MainTitle>
       <S.ContentsSection>
         <S.ContentsTitle>{props.fetchBoardData?.title}</S.ContentsTitle>

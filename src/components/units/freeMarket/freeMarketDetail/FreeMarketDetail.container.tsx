@@ -40,6 +40,9 @@ function FreeMarketDetailContainer(props: any) {
       } catch (error: any) {
         alert(error.message);
       }
+    } else if (!fetchUserData) {
+      alert("로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.");
+      router.push("/signIn");
     } else {
       alert("포인트가 부족합니다. 충전페이지로 이동합니다.");
       router.push("/myPage");
@@ -54,7 +57,8 @@ function FreeMarketDetailContainer(props: any) {
       alert(`'${props.fetchUsedItemData.seller.name}'님의 상품을 찜했습니다.`);
       router.replace(`/freeMarket/${router.query.marketId}`);
     } catch (error: any) {
-      alert(error.message);
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      router.push("/signIn");
     }
   };
 

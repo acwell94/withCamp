@@ -46,7 +46,7 @@ function FreeMarketWritePresenter(props: any) {
             가격<S.ErrorMsg>{props.formState.errors.price?.message}</S.ErrorMsg>
           </S.ContentsTitle>
           <CommonLongInput
-            type="text"
+            type="number"
             placeholder="가격을 입력해주세요."
             register={props.register("price")}
           />

@@ -106,6 +106,12 @@ export const ContentsArticle = styled.div`
   padding: 30px 0px 0px 0px;
 `;
 
+export const SearchBarSection = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 30px 0px;
+`;
+
 export const ContentsArticleTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -124,6 +130,10 @@ export const ArticleElement = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const SearchResult = styled.div`
+  font-size: 15px;
 `;
 
 export const ContentsListBorder = styled.div``;

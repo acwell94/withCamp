@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 import { getDateDot } from "../../commons/libraries/Date";
 import PaginationContainer from "../../commons/pagination/Pagination.container";
 import { PointComma } from "../../commons/libraries/point";
+import onClickMove from "../../hooks/useMove";
 function MyPagePresenter(props) {
+  const { onClickMovetoPage } = onClickMove();
   return (
     <S.Main>
       <S.MainTitle>마이페이지</S.MainTitle>
@@ -86,7 +88,11 @@ function MyPagePresenter(props) {
             </S.HistoryContentsTitle>
             <div>
               {props.fetchIPickedData?.fetchUseditemsIPicked.map((el) => (
-                <S.ContentsArticleList key={uuidv4()}>
+                <S.ContentsArticleList
+                  key={uuidv4()}
+                  onClick={onClickMovetoPage(`/freeMarket/${el._id}`)}
+                  style={{ cursor: "pointer" }}
+                >
                   <S.ContentsTitleElement>{el.name}</S.ContentsTitleElement>
                   <S.ContentsTitleElement>
                     {PointComma(el.price)}

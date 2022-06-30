@@ -30,6 +30,7 @@ function FreeMarketListPresenter(props: IFreeMarketListContainer) {
                 type="button"
                 contents="등록하기"
                 onClick={onClickMovetoPage(`/freeMarket/write`)}
+                disabled={!props.accessToken}
               />
             </div>
           </S.ContentsTitleSection>

@@ -5,6 +5,7 @@ import onClickMove from "../../../hooks/useMove";
 import PaginationContainer from "../../../commons/pagination/Pagination.container";
 import CommonButton from "../../../commons/libraries/Button";
 import { getDateDot } from "../../../commons/libraries/Date";
+import SearchBarPage from "../../../commons/searchBar/SearchBar";
 
 function FreeBoardListPresenter(props: IFreeBoardListContainer) {
   const { onClickMovetoPage } = onClickMove();
@@ -50,6 +51,15 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
         </S.BestContentsArticle>
         <S.ContentsArticle>
           <S.WriteCommon>게시글 목록</S.WriteCommon>
+
+          <S.SearchBarSection>
+            <SearchBarPage
+              refetch={props.fetchBoardsRefetch}
+              refetchSearch={props.fetchBoardsCountRefetch}
+              onChangeKeyword={props.onChangeKeyword}
+            />
+          </S.SearchBarSection>
+
           <S.ContentsArticleTitle>
             <S.ArticleElement>번호</S.ArticleElement>
             <S.ArticleElement>제목</S.ArticleElement>
@@ -64,7 +74,16 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
                 onClick={onClickMovetoPage(`/freeboard/${el._id}`)}
               >
                 <S.ArticleElement>{10 - index}</S.ArticleElement>
-                <S.ArticleElement>{el.title}</S.ArticleElement>
+
+                <S.ArticleElement>
+                  {el.title
+                    .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
+                    .split("#$%")
+                    .map((el: any) => (
+                      <S.SearchResult key={uuidv4()}>{el}</S.SearchResult>
+                    ))}
+                </S.ArticleElement>
+
                 <S.ArticleElement>{el.writer} 님</S.ArticleElement>
                 <S.ArticleElement>{getDateDot(el.createdAt)}</S.ArticleElement>
               </S.ContentsArticleList>

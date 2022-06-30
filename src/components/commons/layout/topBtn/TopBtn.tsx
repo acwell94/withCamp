@@ -12,7 +12,7 @@ const TopBox = styled.div`
   border: 2px solid #dadada;
   cursor: pointer;
   position: sticky;
-  top: 750px;
+  top: 850px;
   bottom: 0px;
   right: 200px;
   transition: 0.2s;

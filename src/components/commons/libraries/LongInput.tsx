@@ -17,7 +17,7 @@ const LongInput = styled.input`
 `;
 
 interface IProps {
-  type: "text" | "password" | "number";
+  type: "text" | "password" | "number" | "number";
   register?: UseFormRegisterReturn;
   placeholder?: string | undefined;
   defaultValue?: string | undefined;

@@ -13,6 +13,7 @@ export const Select = styled.select`
   outline: none;
   border: none;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 export const Option = styled.option`

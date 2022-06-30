@@ -114,7 +114,7 @@ export const HistoryTap = styled.div`
   font-size: 25px;
   font-weight: 700;
   box-shadow: rgb(219 219 219) 0px 5px 20px;
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
   cursor: pointer;
 `;
 
@@ -150,5 +150,4 @@ export const ContentsArticleList = styled.div`
   justify-content: space-between;
   padding: 10px 0px;
   border-bottom: 1px solid #e5e5e5;
-  cursor: pointer;
 `;
