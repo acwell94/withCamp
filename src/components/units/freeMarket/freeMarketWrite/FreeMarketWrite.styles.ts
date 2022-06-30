@@ -41,6 +41,14 @@ export const ErrorMsg = styled.span`
   padding: 0px 0px 0px 10px;
 `;
 
+export const ContentsTags = styled.span`
+  font-size: 15px;
+  font-weight: 500;
+  color: #878787;
+  padding: 0px 20px 10px 0px;
+  cursor: pointer;
+`;
+
 export const FileUploadArticle = styled.div`
   display: flex;
   flex-direction: row;
@@ -50,4 +58,9 @@ export const ButtonArticle = styled.div`
   display: flex;
   justify-content: center;
   padding: 50px 0px 0px 0px;
+`;
+
+export const SmallInfo = styled.span`
+  font-size: 15px;
+  color: gray;
 `;

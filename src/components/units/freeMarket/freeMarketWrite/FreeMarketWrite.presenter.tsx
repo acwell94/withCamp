@@ -14,7 +14,11 @@ function FreeMarketWritePresenter(props: any) {
       <S.MainTitle>
         {props.isEdit ? "상품 수정하기" : "상품 등록하기"}
       </S.MainTitle>
-      <S.ContentsSection onSubmit={props.handleSubmit(props.onClickReg)}>
+      <S.ContentsSection
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickEdit : props.onClickReg
+        )}
+      >
         <div>
           <S.ContentsTitle>
             상품명
@@ -48,20 +52,18 @@ function FreeMarketWritePresenter(props: any) {
           />
         </div>
         <S.ContentsArticle>
-          <S.ContentsTitle>
-            태그
-            <S.ErrorMsg>{props.formState.errors.price?.message}</S.ErrorMsg>
-          </S.ContentsTitle>
+          <S.ContentsTitle style={{ padding: "0px" }}>태그</S.ContentsTitle>
           <div>
-            <span>
-              {props.hashArr.map((el: string) => (
-                <>
-                  <span key={uuidv4()} onClick={props.onClickDeleteHash}>
-                    {el}
-                  </span>
-                </>
-              ))}
-            </span>
+            {props.hashArr.map((el: string) => (
+              <>
+                <S.ContentsTags
+                  key={uuidv4()}
+                  onClick={props.onClickDeleteHash}
+                >
+                  {el}
+                </S.ContentsTags>
+              </>
+            ))}
           </div>
           <CommonLongInput
             type="text"
@@ -100,13 +102,20 @@ function FreeMarketWritePresenter(props: any) {
           </S.FileUploadArticle>
         </S.ContentsArticle>
         <div>
-          <S.ContentsTitle>거래장소</S.ContentsTitle>
+          <S.ContentsTitle>
+            거래장소
+            <S.SmallInfo>
+              {props.isEdit
+                ? "(미변경시 기존의 장소가 나옵니다.)"
+                : "(거래장소를 등록해주세요.)"}
+            </S.SmallInfo>
+          </S.ContentsTitle>
           <CampKaKaoMapWritePage setAddress={props.setAddress} />
         </div>
         <S.ButtonArticle>
           <ToogleButton
             type="submit"
-            contents="등록하기"
+            contents={props.isEdit ? "수정하기" : "등록하기"}
             isActive={props.isComplete}
           />
         </S.ButtonArticle>

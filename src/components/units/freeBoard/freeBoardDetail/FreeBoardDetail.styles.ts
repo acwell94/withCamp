@@ -58,6 +58,10 @@ export const Image = styled.img`
   margin-bottom: 50px;
 `;
 
+export const ContentsStyle = styled.div`
+  word-break: break-all;
+`;
+
 export const LikeArticle = styled.div`
   display: flex;
   justify-content: center;

@@ -9,23 +9,31 @@ const Button = styled.button`
   color: #676767;
   font-weight: 700;
   font-size: 16px;
-  cursor: pointer;
   transition: 0.2s;
-  &:hover {
+
+  ${(props) =>
+    props.disabled
+      ? `:disabled {
+        cursor: auto;
+    background-color : #dadada
+  }`
+      : `&:hover {
+    cursor: pointer;
     color: #dd7202;
     border: 2px solid #dd7202;
-  }
+  }`}
 `;
 
 interface IButtonProps {
   type: "button" | "submit";
   onClick?: any;
   contents: string;
+  disabled?: boolean;
 }
 
 function CommonButton(props: IButtonProps) {
   return (
-    <Button type={props.type} onClick={props.onClick}>
+    <Button type={props.type} onClick={props.onClick} disabled={props.disabled}>
       {props.contents}
     </Button>
   );

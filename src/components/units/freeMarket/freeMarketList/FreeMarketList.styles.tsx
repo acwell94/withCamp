@@ -10,7 +10,7 @@ export const Main = styled.div`
 `;
 
 export const MainTitle = styled.div`
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 700;
   color: #dd7202;
   padding: 0px 0px 80px 0px;

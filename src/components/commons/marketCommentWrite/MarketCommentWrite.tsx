@@ -65,6 +65,7 @@ function MarketCommentWrite(props) {
             createUseditemQuestionInput: {
               contents: data.contents,
             },
+            useditemId: String(router.query.marketId),
           },
         });
         reset();

@@ -16,7 +16,8 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
   return (
     <S.Main>
       <S.MainTitle>
-        {props.fetchUsedItemData?.seller?.name} 님의 판매 중인 상품입니다.
+        {props.fetchUsedItemData?.seller?.name}{" "}
+        <span>님의 판매 중인 상품입니다.</span>
       </S.MainTitle>
       <S.ContentsSection>
         <S.CarouselCss>
@@ -39,11 +40,11 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
           </S.ContentsPrice>
 
           <S.ContentsRemarks>
-            {props.fetchUsedItemData?.remarks}
+            요약 : {props.fetchUsedItemData?.remarks}
           </S.ContentsRemarks>
           <div>
             {typeof window !== "undefined" && (
-              <div
+              <S.ContentsStyle
                 dangerouslySetInnerHTML={{
                   __html: Dompurify.sanitize(props.fetchUsedItemData?.contents),
                 }}
@@ -59,9 +60,25 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
               contents="목록으로"
               onClick={onClickMovetoPage("/freeMarket")}
             />
-            <CommonButton type="button" contents="찜하기" />
+            <CommonButton
+              type="button"
+              contents="찜하기"
+              onClick={props.onClickPick}
+              disabled={
+                props.fetchUsedItemData.seller._id ===
+                props.fetchUserData?.fetchUserLoggedIn._id
+              }
+            />
 
-            <CommonFillButton type="button" contents="바로구매" />
+            <CommonFillButton
+              type="button"
+              contents="바로구매"
+              disabled={
+                props.fetchUsedItemData.seller._id ===
+                props.fetchUserData?.fetchUserLoggedIn._id
+              }
+              onClick={props.onClickPay}
+            />
           </S.PickedPayBtnArticle>
         </S.ContentsArticle>
 
@@ -93,7 +110,7 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
             <CommonButton
               type="button"
               contents="삭제하기"
-              onClick={onClickMovetoPage("/freeMarket")}
+              onClick={props.onClickDelete}
             />
           </S.EditDeleteBtnArticle>
         ) : (

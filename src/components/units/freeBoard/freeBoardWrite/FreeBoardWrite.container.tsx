@@ -97,6 +97,9 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
   }, [_.isEmpty(formState.errors)]);
 
   const onClickEdit = async (data: IData) => {
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(fetchBoardData?.fetchBoard.images);
+    const isChangedFiles = currentFiles !== defaultFiles;
     try {
       const result = await updateBoard({
         variables: {
@@ -122,9 +125,9 @@ function FreeBoardWriteContainer(props: IFreeBoardEditPage) {
                 ? address.place_name
                 : fetchBoardData?.fetchBoard.boardAddress.addressDetail,
             },
-            images: fetchBoardData?.fetchBoard.images
-              ? fetchBoardData?.fetchBoard.images
-              : fileUrls,
+            images: isChangedFiles
+              ? fileUrls
+              : fetchBoardData?.fetchBoard.images,
           },
         },
       });

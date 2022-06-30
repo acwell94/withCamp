@@ -21,4 +21,7 @@ export interface IFreeMarketDetailContainer {
     useditemAddress: any;
   };
   fetchUserData: any;
+  onClickDelete: () => void;
+  onClickPay: () => void;
+  onClickPick: () => void;
 }

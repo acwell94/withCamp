@@ -73,7 +73,7 @@ function FreeMarketWriteContainer(props) {
             name: data.name,
             remarks: data.remarks,
             price: Number(data.price),
-            tags: data.tags,
+            tags: hashArr,
             contents: data.contents,
             images: fileUrls,
             useditemAddress: {
@@ -99,50 +99,67 @@ function FreeMarketWriteContainer(props) {
   };
 
   const onClickEdit = async (data) => {
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(
+      fetchUsedItemData?.fetchUseditem.images
+    );
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     try {
       const result = await updateUsedItem({
         variables: {
-          name: data.name ? data.name : fetchUsedItemData.fetchUseditem?.name,
-          remarks: data.remarks
-            ? data.remarks
-            : fetchUsedItemData.fetchUseditem?.remarks,
-          price: data.price
-            ? Number(data.price)
-            : Number(fetchUsedItemData.fetchUseditem?.price),
-          tags: data.tags ? data.tags : fetchUsedItemData.fetchUseditem?.tags,
-          contents: data.contents
-            ? data.contents
-            : fetchUsedItemData.fetchUseditem?.contents,
-          images: fetchUsedItemData.fetchUseditem?.images
-            ? fetchUsedItemData.fetchUseditem?.images
-            : fileUrls,
-          useditemAddress: {
-            zipcode: address.x
-              ? address.x
-              : fetchUsedItemData.fetchUseditem?.useditemAddress.zipcode,
-            address: address.y
-              ? address.y
-              : fetchUsedItemData.fetchUseditem?.useditemAddress.address,
-            addressDetail: address.place_name
-              ? address.place_name
-              : fetchUsedItemData.fetchUseditem?.useditemAddress.addressDetail,
+          updateUseditemInput: {
+            name: data.name ? data.name : fetchUsedItemData.fetchUseditem?.name,
+            remarks: data.remarks
+              ? data.remarks
+              : fetchUsedItemData.fetchUseditem?.remarks,
+            price: data.price
+              ? Number(data.price)
+              : Number(fetchUsedItemData.fetchUseditem?.price),
+            tags:
+              fetchUsedItemData.fetchUseditem?.tags === hashArr
+                ? fetchUsedItemData.fetchUseditem?.tags
+                : hashArr,
+            contents: data.contents
+              ? data.contents
+              : fetchUsedItemData?.fetchUseditem.contents,
+            images: isChangedFiles
+              ? fileUrls
+              : fetchUsedItemData?.fetchUseditem.images,
+            useditemAddress: {
+              zipcode: address.x
+                ? address.x
+                : fetchUsedItemData.fetchUseditem?.useditemAddress.zipcode,
+              address: address.y
+                ? address.y
+                : fetchUsedItemData.fetchUseditem?.useditemAddress.address,
+              addressDetail: address.place_name
+                ? address.place_name
+                : fetchUsedItemData.fetchUseditem?.useditemAddress
+                    .addressDetail,
+            },
           },
+          useditemId: router.query.marketId,
         },
       });
+
       alert("상품 수정이 완료되었습니다.");
-      router.push(`/freeMarket/${result.data.updateUsedItem._id}`);
+      router.push(`/freeMarket/${result.data.updateUseditem._id}`);
     } catch (error: any) {
       alert(error.message);
     }
   };
 
   useEffect(() => {
-    setValue("name", fetchUsedItemData.fetchUseditem?.name);
-    setValue("remarks", fetchUsedItemData.fetchUseditem?.remarks);
-    setValue("price", fetchUsedItemData.fetchUseditem?.price);
-    setHashArr(fetchUsedItemData.fetchUseditem?.tags);
-    if (fetchUsedItemData.fetchUseditem?.images) {
-      setFileUrls([...fetchUsedItemData.fetchUseditem?.images]);
+    setValue("name", fetchUsedItemData?.fetchUseditem?.name);
+    setValue("remarks", fetchUsedItemData?.fetchUseditem?.remarks);
+    setValue("contents", fetchUsedItemData?.fetchUseditem.contents);
+    setValue("price", fetchUsedItemData?.fetchUseditem?.price);
+    if (fetchUsedItemData?.fetchUseditem?.tags) {
+      setHashArr([...fetchUsedItemData?.fetchUseditem?.tags]);
+    }
+    if (fetchUsedItemData?.fetchUseditem?.images) {
+      setFileUrls([...fetchUsedItemData?.fetchUseditem?.images]);
     }
   }, [fetchUsedItemData]);
 

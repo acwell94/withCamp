@@ -53,12 +53,13 @@ export const ContentsArticle = styled.div`
 export const ContentsName = styled.div`
   font-size: 30px;
   font-weight: 700;
-  word-break: break-word;
+  padding: 0px 0px 10px 0px;
+  word-break: break-all;
 `;
 
 export const TagsArrange = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const ContentsTags = styled.div`
@@ -71,14 +72,19 @@ export const ContentsTags = styled.div`
 export const ContentsPrice = styled.div`
   font-size: 30px;
   font-weight: 700;
+  padding: 10px 0px 0px 0px;
 `;
 
 export const ContentsRemarks = styled.div`
   font-size: 25px;
   font-weight: 700;
-  word-break: break-word;
+  word-break: break-all;
   color: #a5a5a5;
   padding: 20px 0px;
+`;
+
+export const ContentsStyle = styled.div`
+  word-break: break-all;
 `;
 
 export const ContentsPickedCount = styled.div`

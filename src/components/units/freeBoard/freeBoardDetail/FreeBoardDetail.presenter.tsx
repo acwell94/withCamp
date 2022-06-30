@@ -36,7 +36,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
 
           <div>
             {typeof window !== "undefined" && (
-              <div
+              <S.ContentsStyle
                 dangerouslySetInnerHTML={{
                   __html: Dompurify.sanitize(props.fetchBoardData?.contents),
                 }}
