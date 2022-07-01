@@ -49,7 +49,6 @@ function MyPageContainer() {
       variables: { search: searchData },
     }
   );
-  console.log(fetchSellingCountData, "55", fetchSoldCountData);
 
   const { data: fetchPointCountData } = useQuery(
     FETCH_POINT_TRANSACTIONS_COUNT_OF_LOADING
