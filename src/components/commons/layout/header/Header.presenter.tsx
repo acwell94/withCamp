@@ -7,6 +7,7 @@ function HeaderPresenter(props: IHeaderContainer) {
 
   return (
     <S.Header>
+      {/*  */}
       <S.HeaderPage>
         <S.LogoSection>
           <S.Logo onClick={onClickMovetoPage("/")} src="/images/withCamp.png" />
