@@ -25,7 +25,7 @@ const schema = yup.object({
   contents: yup.string().required("내용은 필수 입력 사항입니다."),
 });
 
-function FreeMarketWriteContainer(props) {
+function FreeMarketWriteContainer(props: any) {
   const router = useRouter();
   const [createUseditem] = useMutation(CREATE_USEDITEM);
   const { data: fetchUsedItemData } = useQuery(FETCH_USED_ITEM, {
@@ -65,7 +65,7 @@ function FreeMarketWriteContainer(props) {
     }
   };
 
-  const onClickReg = async (data) => {
+  const onClickReg = async (data: any) => {
     try {
       const result = await createUseditem({
         variables: {
@@ -86,7 +86,7 @@ function FreeMarketWriteContainer(props) {
       });
       alert("게시글 등록이 완료되었습니다.");
       router.push(`/freeMarket/${result.data?.createUseditem._id}`);
-    } catch (error) {
+    } catch (error: any) {
       alert(error.message);
     }
   };
@@ -100,7 +100,7 @@ function FreeMarketWriteContainer(props) {
     setHashArr([...hashArr]);
   };
 
-  const onClickEdit = async (data) => {
+  const onClickEdit = async (data: any) => {
     const currentFiles = JSON.stringify(fileUrls);
     const defaultFiles = JSON.stringify(
       fetchUsedItemData?.fetchUseditem.images

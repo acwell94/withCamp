@@ -5,7 +5,9 @@ import { getDateDot } from "../../commons/libraries/Date";
 import PaginationContainer from "../../commons/pagination/Pagination.container";
 import { PointComma } from "../../commons/libraries/point";
 import onClickMove from "../../hooks/useMove";
-function MyPagePresenter(props) {
+import { IMyPageContainer } from "./MyPage.types";
+
+function MyPagePresenter(props: IMyPageContainer) {
   const { onClickMovetoPage } = onClickMove();
   return (
     <S.Main>
@@ -65,7 +67,7 @@ function MyPagePresenter(props) {
         </S.UserHistoryArticle>
       </S.InfoSection>
       <S.HistoryContentsTitleArticle>
-        {props.tap.map((el) => (
+        {props.tap.map((el: any) => (
           <S.HistoryTap
             key={uuidv4()}
             onClick={props.selectTap}
@@ -89,7 +91,7 @@ function MyPagePresenter(props) {
               <S.ContentsTitleElement>상품 등록일</S.ContentsTitleElement>
             </S.HistoryContentsTitle>
             <div>
-              {props.fetchIPickedData?.fetchUseditemsIPicked.map((el) => (
+              {props.fetchIPickedData?.fetchUseditemsIPicked.map((el: any) => (
                 <S.ContentsArticleList
                   key={uuidv4()}
                   onClick={onClickMovetoPage(`/freeMarket/${el._id}`)}

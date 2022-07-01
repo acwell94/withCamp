@@ -65,7 +65,7 @@ function MyPageContainer() {
   const [selectedTap, setSelectedTap] = useState("찜목록");
   const tap = ["찜목록", "판매내역", "구매내역", "충전내역"];
 
-  const selectTap = (event) => {
+  const selectTap = (event: any) => {
     setSelectedTap(event.target.innerText);
   };
 

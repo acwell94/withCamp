@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import Head from "next/head";
 import { useState } from "react";
+import { IQuery } from "../../../commons/types/generated/types";
 import * as S from "./PointCharge.styles";
 
 declare const window: typeof globalThis & {
@@ -18,12 +19,16 @@ const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
   }
 `;
 
-function PointCharge(props) {
+interface IMyPagePresenter {
+  fetchUserData?: Pick<IQuery, "fetchUserLoggedIn">;
+}
+
+function PointCharge(props: IMyPagePresenter) {
   const [createPoint] = useMutation(CREATE_POINT_TRANSACTION_OF_LOADING);
   const [amount, setAmount] = useState(0);
   const [pointName, setPointName] = useState("");
 
-  const onchangePrice = (event) => {
+  const onchangePrice = (event: any) => {
     setAmount(Number(event.target.value));
     setPointName(`${event.target.value} 원`);
   };

@@ -9,7 +9,7 @@ export interface IFreeBoardListContainer {
   fetchBoardsRefetch?: any;
   totalItemCount?: number;
   keyword?: any;
-  onChangeKeyword: (value: string) => void;
+  onChangeKeyword?: (value: string) => void;
 }
 
 export interface IData {

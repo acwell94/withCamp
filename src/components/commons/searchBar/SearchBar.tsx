@@ -2,7 +2,7 @@ import _ from "lodash";
 import { ChangeEvent } from "react";
 import * as S from "./SearchBar.styles";
 
-function SearchBarPage(props) {
+function SearchBarPage(props: any) {
   const getDebounce = _.debounce((data) => {
     props.refetch({ search: data, page: 1 });
     if (props.refetchSearch) {

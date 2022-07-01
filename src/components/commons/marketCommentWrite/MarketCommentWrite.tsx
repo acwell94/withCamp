@@ -20,7 +20,7 @@ const schema = yup.object({
     .required("내용을 입력해주세요."),
 });
 
-function MarketCommentWrite(props) {
+function MarketCommentWrite(props: any) {
   const router = useRouter();
   const [createUsedItemQuestion] = useMutation(CREATE_USEDITEM_QUESTION);
   const [updateUsedItemQuestion] = useMutation(UPDATE_USEDITEM_QUESTION);
@@ -41,7 +41,7 @@ function MarketCommentWrite(props) {
     }
   };
 
-  const onClickCommentWrite = async (data) => {
+  const onClickCommentWrite = async (data: any) => {
     if (props.isAnswer) {
       try {
         await createCommentAnswer({
@@ -77,7 +77,7 @@ function MarketCommentWrite(props) {
     }
   };
 
-  const onClickCommentUpdate = async (data) => {
+  const onClickCommentUpdate = async (data: any) => {
     if (props.isEdit) {
       try {
         await updateUsedItemQuestion({

@@ -2,7 +2,12 @@ import { useQuery } from "@apollo/client";
 import { FETCH_USEDITEM_QUESTION_ANSWERS } from "../../freeMarketComment/freeMarketCommentCommon/FreeMarketComment.queries";
 import FreeMarketCommentAnswerListPresenter from "./FreeMarketCommentAnswerList.presenter";
 
-function FreeMarketCommentAnswerListContainer(props) {
+interface IMarketCommentList {
+  commentId: String;
+  fetchUserId: String;
+}
+
+function FreeMarketCommentAnswerListContainer(props: IMarketCommentList) {
   const { data: fetchUsedItemQAData } = useQuery(
     FETCH_USEDITEM_QUESTION_ANSWERS,
     {

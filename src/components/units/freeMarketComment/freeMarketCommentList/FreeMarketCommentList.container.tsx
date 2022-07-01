@@ -1,9 +1,10 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { FETCH_USED_ITEM_QUESTIONS } from "../freeMarketCommentCommon/FreeMarketComment.queries";
+import { IFreeMarketDetailPresenter } from "../freeMarketCommentCommon/FreeMarketComment.types";
 import FreeMarketCommentListPresenter from "./FreeMarketCommentList.presenter";
 
-function FreeMarketCommentListContainer(props) {
+function FreeMarketCommentListContainer(props: IFreeMarketDetailPresenter) {
   const router = useRouter();
 
   const { data: fetchUsedItemQuestionsData, fetchMore } = useQuery(

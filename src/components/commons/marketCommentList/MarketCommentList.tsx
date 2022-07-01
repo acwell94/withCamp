@@ -7,7 +7,7 @@ import { getDateDot } from "../libraries/Date";
 import MarketCommentWrite from "../marketCommentWrite/MarketCommentWrite";
 import * as S from "./MarketCommentList.styles";
 
-function MarketCommentList(props) {
+function MarketCommentList(props: any) {
   const router = useRouter();
   const [isAnswer, setIsAnswer] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
