@@ -5,6 +5,9 @@ export interface IFreeMarketListContainer {
   fetchUsedItemsOfTheBest: Pick<IQuery, "fetchUseditemsOfTheBest">;
   loadMore: any;
   accessToken?: any;
+  keyword?: any;
+  onChangeKeyword: (value: string) => void;
+  fetchUsedItemRefetch: any;
 }
 
 export interface IFreeMarketDetailContainer {

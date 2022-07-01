@@ -3,6 +3,7 @@ import * as S from "./MarketItem.styles";
 import { PointComma } from "../libraries/point";
 import { getDateDot } from "../libraries/Date";
 import onClickMove from "../../hooks/useMove";
+import { v4 as uuidv4 } from "uuid";
 
 function MarketItem(props: any) {
   const { onClickMovetoPage } = onClickMove();
@@ -29,7 +30,17 @@ function MarketItem(props: any) {
         </S.ItemArticle>
         <S.ItemArticle>
           <S.ItemName backGroundcolor={props.backGroundcolor}>
-            상품명 : {props.el.name}
+            {props.el.name
+              .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
+              .split("#$%")
+              .map((el: any) => (
+                <S.SearchResult
+                  backGroundcolor={props.backGroundcolor}
+                  key={uuidv4()}
+                >
+                  {el}
+                </S.SearchResult>
+              ))}
           </S.ItemName>
         </S.ItemArticle>
         <S.ItemArticle>

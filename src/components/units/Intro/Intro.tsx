@@ -33,7 +33,7 @@ function IntroPresenter() {
         </div>
         <S.LogoArticle>
           <S.MainLogo>with:Camp</S.MainLogo>
-          <S.WriteCommon>에서 다양한 상품들을 만나보세요</S.WriteCommon>
+          <S.WriteCommon>에서 다양한 상품들을 만나보세요.</S.WriteCommon>
         </S.LogoArticle>
       </S.ImgSection>
       <S.OutTroSection>

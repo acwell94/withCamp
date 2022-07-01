@@ -5,7 +5,9 @@ import * as S from "./SearchBar.styles";
 function SearchBarPage(props) {
   const getDebounce = _.debounce((data) => {
     props.refetch({ search: data, page: 1 });
-    props.refetchSearch({ search: data });
+    if (props.refetchSearch) {
+      props.refetchSearch({ search: data });
+    }
     props.onChangeKeyword(data);
   }, 200);
 
@@ -18,7 +20,11 @@ function SearchBarPage(props) {
       <S.SearchInnerDiv>
         <S.SearchInput
           type="text"
-          placeholder="제목을 검색해보세요"
+          placeholder={
+            props.refetchSearch
+              ? "제목을 검색해주세요."
+              : "상품명을 검색해주세요."
+          }
           onChange={onChangeSearch}
         />
       </S.SearchInnerDiv>

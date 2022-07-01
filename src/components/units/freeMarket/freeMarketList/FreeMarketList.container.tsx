@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/recoil";
 import {
@@ -8,12 +9,19 @@ import {
 import FreeMarketListPresenter from "./FreeMarketList.presenter";
 
 function FreeMarketListContainer() {
-  const { data: fetchUsedItemsData, fetchMore } = useQuery(FETCH_USED_ITEMS);
+  const {
+    data: fetchUsedItemsData,
+    fetchMore,
+    refetch: fetchUsedItemRefetch,
+  } = useQuery(FETCH_USED_ITEMS);
   const { data: fetchUsedItemsOfTheBest } = useQuery(
     FETCH_USED_ITEMS_OF_THE_BEST
   );
   const [accessToken] = useRecoilState(accessTokenState);
-
+  const [keyword, setKeyword] = useState("");
+  const onChangeKeyword = (value: string) => {
+    setKeyword(value);
+  };
   const loadMore = () => {
     if (!fetchUsedItemsData) return;
     fetchMore({
@@ -39,6 +47,9 @@ function FreeMarketListContainer() {
       fetchUsedItemsOfTheBest={fetchUsedItemsOfTheBest}
       loadMore={loadMore}
       accessToken={accessToken}
+      keyword={keyword}
+      onChangeKeyword={onChangeKeyword}
+      fetchUsedItemRefetch={fetchUsedItemRefetch}
     />
   );
 }

@@ -58,3 +58,10 @@ export const ContentsCss = styled.div`
   justify-content: space-between;
   grid-template-columns: 29% 29% 29%;
 `;
+
+export const SearchBarSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px 0px 50px 0px;
+`;

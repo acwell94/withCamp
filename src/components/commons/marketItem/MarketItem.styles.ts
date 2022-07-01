@@ -58,6 +58,8 @@ export const ItemTitle = styled.div`
 `;
 
 export const ItemName = styled.div`
+  display: flex;
+  flex-direction: row;
   font-size: ${(props: IMarketItem) =>
     props.backGroundcolor ? "13px" : "15px"};
   color: ${(props: IMarketItem) =>
@@ -66,6 +68,11 @@ export const ItemName = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const SearchResult = styled.div`
+  font-size: ${(props: IMarketItem) =>
+    props.backGroundcolor ? "13px" : "15px"};
 `;
 
 export const ItemPrice = styled.div`
