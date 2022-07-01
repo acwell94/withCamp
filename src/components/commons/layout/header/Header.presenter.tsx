@@ -22,7 +22,7 @@ function HeaderPresenter(props: IHeaderContainer) {
           </S.NavMenu>
           <S.NavMenu
             onClick={onClickMovetoPage(
-              props.accessToken ? "/myPage" : "/signIn"
+              props.accessToken ? "/mypage" : "/signIn"
             )}
           >
             My Page

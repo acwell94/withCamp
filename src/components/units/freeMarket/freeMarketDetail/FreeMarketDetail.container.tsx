@@ -36,7 +36,7 @@ function FreeMarketDetailContainer(props: any) {
           variables: { useritemId: String(router.query.marketId) },
         });
         alert("결제가 완료되었습니다. 마이페이지로 이동합니다.");
-        router.push("/myPage");
+        router.push("/mypage");
       } catch (error: any) {
         alert(error.message);
       }
@@ -45,7 +45,7 @@ function FreeMarketDetailContainer(props: any) {
       router.push("/signIn");
     } else {
       alert("포인트가 부족합니다. 충전페이지로 이동합니다.");
-      router.push("/myPage");
+      router.push("/mypage");
     }
   };
 

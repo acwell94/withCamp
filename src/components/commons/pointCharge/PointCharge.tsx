@@ -48,7 +48,7 @@ function PointCharge(props: IMyPagePresenter) {
         buyer_tel: "010-6374-3809",
         buyer_addr: "경기도 고양시 일산서구",
         buyer_postcode: "01181",
-        m_redirect_url: "http://localhost:3000/myPage",
+        m_redirect_url: "http://localhost:3000/mypage",
       },
       (rsp: any) => {
         if (rsp.success) {
