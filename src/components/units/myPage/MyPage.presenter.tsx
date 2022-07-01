@@ -39,7 +39,7 @@ function MyPagePresenter(props: IMyPageContainer) {
           >
             <S.HistoryTitle>판매한 상품</S.HistoryTitle>
             <S.HistoryCount>
-              {Number(props.fetchSoldCountData?.fetchUseditemsCountISold) || ""}
+              {Number(props.fetchSoldCountData?.fetchUseditemsCountISold)}
             </S.HistoryCount>
           </S.CommonHistorySection>
 
