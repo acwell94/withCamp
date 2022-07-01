@@ -7,6 +7,7 @@ import {
   FETCH_POINT_TRANSACTIONS_OF_LOADING,
   FETCH_USED_ITEMS_COUNT_I_BOUGHT,
   FETCH_USED_ITEMS_COUNT_I_PICKED,
+  FETCH_USED_ITEMS_COUNT_I_SELLING,
   FETCH_USED_ITEMS_COUNT_I_SOLD,
   FETCH_USED_ITEMS_I_BOUGHT,
   FETCH_USED_ITEMS_I_PICKED,
@@ -14,7 +15,7 @@ import {
 } from "./MyPage.queries";
 
 function MyPageContainer() {
-  const [searchData, setSearchData] = useState("");
+  const searchData = "";
   const { data: fetchUserData } = useQuery(FETCH_USER_LOGGED_IN);
 
   const { data: fetchPickedCountData } = useQuery(
@@ -28,6 +29,9 @@ function MyPageContainer() {
   );
 
   const { data: fetchSoldCountData } = useQuery(FETCH_USED_ITEMS_COUNT_I_SOLD);
+  const { data: fetchSellingCountData } = useQuery(
+    FETCH_USED_ITEMS_COUNT_I_SELLING
+  );
   const { data: fetchISoldData, refetch: fetchISoldDataRefetch } = useQuery(
     FETCH_USED_ITEMS_I_SOLD,
     {
@@ -38,12 +42,14 @@ function MyPageContainer() {
   const { data: fetchBoughtCountData } = useQuery(
     FETCH_USED_ITEMS_COUNT_I_BOUGHT
   );
+
   const { data: fetchIBoughtData, refetch: fetchIBoughtDataRefetch } = useQuery(
     FETCH_USED_ITEMS_I_BOUGHT,
     {
       variables: { search: searchData },
     }
   );
+  console.log(fetchSellingCountData, "55", fetchSoldCountData);
 
   const { data: fetchPointCountData } = useQuery(
     FETCH_POINT_TRANSACTIONS_COUNT_OF_LOADING
@@ -63,13 +69,6 @@ function MyPageContainer() {
     setSelectedTap(event.target.innerText);
   };
 
-  const soldCount = fetchISoldData?.fetchUseditemsISold.reduce((acc, cur) => {
-    if (cur.soldAt !== null) {
-      acc.push(cur);
-    }
-    return acc;
-  }, []);
-
   return (
     <MyPagePresenter
       fetchUserData={fetchUserData}
@@ -80,6 +79,7 @@ function MyPageContainer() {
       fetchPickedCountData={fetchPickedCountData}
       fetchIPickedDataRefetch={fetchIPickedDataRefetch}
       fetchSoldCountData={fetchSoldCountData}
+      fetchSellingCountData={fetchSellingCountData}
       fetchISoldData={fetchISoldData}
       fetchISoldDataRefetch={fetchISoldDataRefetch}
       fetchBoughtCountData={fetchBoughtCountData}
@@ -88,7 +88,6 @@ function MyPageContainer() {
       fetchPointCountData={fetchPointCountData}
       fetchPointData={fetchPointData}
       fetchPointDataRefetch={fetchPointDataRefetch}
-      soldCount={soldCount?.length}
     />
   );
 }

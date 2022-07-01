@@ -87,6 +87,7 @@ export const BestContentsItemSection = styled.div`
   cursor: pointer;
   border-radius: 20px 20px 10px 10px;
   background-color: #7d5a50e0;
+  box-shadow: rgb(219 219 219) 0px 5px 20px;
 `;
 
 export const ItemImgArticle = styled.div`

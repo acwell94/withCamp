@@ -29,6 +29,7 @@ export const ContentsSection = styled.div`
   background-color: #fff;
   border-radius: 20px;
   width: 700px;
+  box-shadow: rgb(219 219 219) 0px 5px 20px;
 `;
 
 export const Image = styled.img`

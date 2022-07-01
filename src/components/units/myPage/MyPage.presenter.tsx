@@ -36,7 +36,9 @@ function MyPagePresenter(props) {
             }}
           >
             <S.HistoryTitle>판매한 상품</S.HistoryTitle>
-            <S.HistoryCount>{props.soldCount}</S.HistoryCount>
+            <S.HistoryCount>
+              {Number(props.fetchSoldCountData?.fetchUseditemsCountISold) || ""}
+            </S.HistoryCount>
           </S.CommonHistorySection>
 
           <S.CommonHistorySection
@@ -154,7 +156,11 @@ function MyPagePresenter(props) {
             <>
               <PaginationContainer
                 totalItemCount={
-                  props.fetchSoldCountData?.fetchUseditemsCountISold
+                  Number(props.fetchSoldCountData?.fetchUseditemsCountISold) +
+                  Number(
+                    props.fetchSellingCountData
+                      ?.fetchPointTransactionsCountOfSelling
+                  )
                 }
                 refetch={props.fetchISoldDataRefetch}
               />

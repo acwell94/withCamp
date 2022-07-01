@@ -11,6 +11,8 @@ export const BestContentsItemSection = styled.div`
     props.backGroundcolor ? "#7d5a50e0" : "#fff"};
   border-radius: ${(props: IMarketItem) =>
     props.backGroundcolor ? "20px 20px 10px 10px" : "0px"};
+  box-shadow: ${(props: IMarketItem) =>
+    props.backGroundcolor ? "rgb(219 219 219) 0px 5px 20px;" : ""};
 `;
 
 export const ItemImgArticle = styled.div`

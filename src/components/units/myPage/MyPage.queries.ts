@@ -25,6 +25,11 @@ export const FETCH_USED_ITEMS_COUNT_I_SOLD = gql`
     fetchUseditemsCountISold
   }
 `;
+export const FETCH_USED_ITEMS_COUNT_I_SELLING = gql`
+  query fetchPointTransactionsCountOfSelling {
+    fetchPointTransactionsCountOfSelling
+  }
+`;
 
 export const FETCH_USED_ITEMS_I_SOLD = gql`
   query fetchUseditemsISold($search: String, $page: Int) {
