@@ -27,7 +27,7 @@ function MarketCommentWrite(props: any) {
   const [createCommentAnswer] = useMutation(CREATE_USEDITEM_QUESTION_ANSWER);
   const [updateCommentAnswer] = useMutation(UPDATE_USEDITEM_QUESTION_ANSWER);
 
-  const { register, handleSubmit, reset, formState, watch } = useForm({
+  const { register, handleSubmit, reset, formState, watch }: any = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
