@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../globalstyles/Media";
 
 export const Footer = styled.div`
   display: flex;
@@ -11,6 +12,15 @@ export const Footer = styled.div`
   font-weight: 700;
 `;
 
+export const WriteCommon = styled.div`
+  @media ${breakPoints.tablet} {
+    font-size: 23px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 20px;
+  }
+`;
+
 export const FooterPage = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,5 +30,5 @@ export const FooterPage = styled.div`
 
 export const InfoSection = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 `;

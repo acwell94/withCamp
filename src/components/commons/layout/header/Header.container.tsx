@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../recoil";
 import HeaderPresenter from "./Header.presenter";
@@ -10,6 +11,11 @@ function HeaderContainer() {
   const { data: fetchUserData } = useQuery(FETCH_USER_LOGGED_IN);
   const [logoutUser] = useMutation(LOGOUT_USER);
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClickOpenMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   const onClickLogout = async () => {
     setAccessToken("");
@@ -26,6 +32,9 @@ function HeaderContainer() {
       fetchUserData={fetchUserData}
       accessToken={accessToken}
       onClickLogout={onClickLogout}
+      onClickOpenMenu={onClickOpenMenu}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
     />
   );
 }

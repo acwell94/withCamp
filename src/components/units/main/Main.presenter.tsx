@@ -8,22 +8,23 @@ function MainPresenter(props: IFreeBoardListContainer) {
   return (
     <S.Main>
       <S.IntroSection>
-        <div>
+        <S.IntroArrange>
           <S.IntroSectionFirst>
             Camping,&nbsp;<S.IntroFont40>enjoy</S.IntroFont40>
           </S.IntroSectionFirst>
           <S.IntroFont40>and Meet new People&apos;</S.IntroFont40>
           <S.IntroFontNewMeet>새로운 만남이 있는 캠핑</S.IntroFontNewMeet>
-          <div>
+          <S.IntroBtnArticle>
             <S.IntroMoveBtn onClick={onClickMovetoPage("/Intro")}>
               Find out More
             </S.IntroMoveBtn>
-          </div>
-        </div>
+          </S.IntroBtnArticle>
+        </S.IntroArrange>
         <S.IntroImageArticle>
           <S.IntroImage src="/images/camp.png" />
         </S.IntroImageArticle>
       </S.IntroSection>
+
       <S.BoardSection>
         <S.BoardSectionTitle>Best Contents</S.BoardSectionTitle>
         <S.BestContentsCss>
@@ -49,18 +50,20 @@ function MainPresenter(props: IFreeBoardListContainer) {
                 <S.ItemArticle>
                   <S.ItemWriter>작성자 : {el.writer}님</S.ItemWriter>
                 </S.ItemArticle>
+
                 <S.ItemArticle>
                   <S.ItemCreated>{el.createdAt.slice(0, 10)}</S.ItemCreated>
-                  <S.BestContentsCss>
+                  <S.LikeCountSection>
                     <S.HeartImg src="/images/Heart.png" />
                     <S.ItemLikeCount>{el.likeCount}</S.ItemLikeCount>
-                  </S.BestContentsCss>
+                  </S.LikeCountSection>
                 </S.ItemArticle>
               </S.ItemArrange>
             </S.BestContentsItemSection>
           ))}
         </S.BestContentsCss>
       </S.BoardSection>
+
       <S.BoardSection>
         <S.BoardSectionTitle>Best Shop</S.BoardSectionTitle>
 
@@ -70,7 +73,7 @@ function MainPresenter(props: IFreeBoardListContainer) {
               key={uuidv4()}
               el={el}
               id={el._id}
-              backGroundcolor={true}
+              backGroundColor={true}
             />
           ))}
         </S.BestGoodsCss>

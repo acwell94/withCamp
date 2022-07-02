@@ -7,12 +7,19 @@ function HeaderPresenter(props: IHeaderContainer) {
 
   return (
     <S.Header>
-      {/*  */}
       <S.HeaderPage>
+        <S.MediaHamburgerDiv>
+          <S.MediaHamburger
+            src="/images/hamburger.png"
+            onClick={props.onClickOpenMenu}
+          />
+        </S.MediaHamburgerDiv>
+
         <S.LogoSection>
           <S.Logo onClick={onClickMovetoPage("/")} src="/images/withCamp.png" />
         </S.LogoSection>
-        <S.HeaderNav>
+
+        <S.HeaderNav isOpen={props.isOpen}>
           <S.NavMenu onClick={onClickMovetoPage("/Intro")}>소개</S.NavMenu>
           <S.NavMenu onClick={onClickMovetoPage("/freeboard")}>
             자유게시판
@@ -34,7 +41,7 @@ function HeaderPresenter(props: IHeaderContainer) {
             <S.UserArticle>
               {props.fetchUserData?.fetchUserLoggedIn.name} 님
             </S.UserArticle>
-            <S.UserArticle>|</S.UserArticle>
+            <S.DivideBar>|</S.DivideBar>
             <S.UserArticle onClick={props.onClickLogout}>
               로그아웃
             </S.UserArticle>
@@ -44,7 +51,7 @@ function HeaderPresenter(props: IHeaderContainer) {
             <S.UserArticle onClick={onClickMovetoPage("/signIn")}>
               로그인
             </S.UserArticle>
-            <S.UserArticle>|</S.UserArticle>
+            <S.DivideBar>|</S.DivideBar>
             <S.UserArticle onClick={onClickMovetoPage("/signup")}>
               회원가입
             </S.UserArticle>

@@ -10,11 +10,12 @@ function MarketItem(props: any) {
   return (
     <S.BestContentsItemSection
       id={props.el._id}
-      backGroundcolor={props.backGroundcolor}
+      backGroundColor={props.backGroundColor}
       onClick={onClickMovetoPage(`/freeMarket/${props.el._id}`)}
     >
-      <S.ItemImgArticle>
+      <S.ItemImgArticle backGroundColor={props.backGroundColor}>
         <S.ItemImg
+          backGroundColor={props.backGroundColor}
           src={
             props.el.images[0]
               ? `https://storage.googleapis.com/${props.el.images?.[0]}`
@@ -22,20 +23,20 @@ function MarketItem(props: any) {
           }
         />
       </S.ItemImgArticle>
-      <S.ItemContentsSection backGroundcolor={props.backGroundcolor}>
+      <S.ItemContentsSection backGroundColor={props.backGroundColor}>
         <S.ItemArticle>
-          <S.ItemTitle backGroundcolor={props.backGroundcolor}>
+          <S.ItemTitle backGroundColor={props.backGroundColor}>
             {props.el.remarks}
           </S.ItemTitle>
         </S.ItemArticle>
         <S.ItemArticle>
-          <S.ItemName backGroundcolor={props.backGroundcolor}>
+          <S.ItemName backGroundColor={props.backGroundColor}>
             {props.el.name
               .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
               .split("#$%")
               .map((el: any) => (
                 <S.SearchResult
-                  backGroundcolor={props.backGroundcolor}
+                  backGroundColor={props.backGroundColor}
                   key={uuidv4()}
                 >
                   {el}
@@ -44,9 +45,10 @@ function MarketItem(props: any) {
           </S.ItemName>
         </S.ItemArticle>
         <S.ItemArticle>
-          <S.ItemPrice backGroundcolor={props.backGroundcolor}>
+          <S.ItemPrice backGroundColor={props.backGroundColor}>
             {PointComma(props.el.price)}
             <S.ItemPickedCount
+              backGroundColor={props.backGroundColor}
               style={{
                 fontWeight: "500",
               }}
@@ -56,14 +58,17 @@ function MarketItem(props: any) {
           </S.ItemPrice>
         </S.ItemArticle>
         <S.ItemArticle>
-          <S.ItemCreated backGroundcolor={props.backGroundcolor}>
+          <S.ItemCreated backGroundColor={props.backGroundColor}>
             {getDateDot(props.el.createdAt)}
           </S.ItemCreated>
           <S.ItemTitle
-            backGroundcolor={props.backGroundcolor}
+            backGroundColor={props.backGroundColor}
             style={{ color: "red" }}
           >
-            ❤ <S.ItemPickedCount>{props.el.pickedCount}</S.ItemPickedCount>
+            ❤{" "}
+            <S.ItemPickedCount backGroundColor={props.backGroundColor}>
+              {props.el.pickedCount}
+            </S.ItemPickedCount>
           </S.ItemTitle>
         </S.ItemArticle>
       </S.ItemContentsSection>

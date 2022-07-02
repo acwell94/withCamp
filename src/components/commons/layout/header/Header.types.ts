@@ -4,4 +4,7 @@ export interface IHeaderContainer {
   fetchUserData: Pick<IQuery, "fetchUserLoggedIn">;
   accessToken?: string;
   onClickLogout: () => void;
+  onClickOpenMenu: () => void;
+  isOpen: boolean;
+  setIsOpen: any;
 }

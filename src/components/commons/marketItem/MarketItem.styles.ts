@@ -1,30 +1,44 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../globalstyles/Media";
 
 interface IMarketItem {
-  backGroundcolor: boolean;
+  backGroundColor: boolean;
 }
 
 export const BestContentsItemSection = styled.div`
   cursor: pointer;
   padding: 0px 0px 10px 0px;
   background-color: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "#7d5a50e0" : "#fff"};
+    props.backGroundColor ? "#7d5a50e0" : "#fff"};
   border-radius: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "20px 20px 10px 10px" : "0px"};
+    props.backGroundColor ? "20px 20px 10px 10px" : "0px"};
   box-shadow: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "rgb(219 219 219) 0px 5px 20px;" : ""};
+    props.backGroundColor ? "rgb(219 219 219) 0px 5px 20px;" : ""};
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    margin: ${(props: IMarketItem) =>
+      props.backGroundColor ? "0px 0px 50px 0px" : "0"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
+
+// ${(props:IMarketItem) => props.backGroundColor ? :}
 
 export const ItemImgArticle = styled.div`
   border-radius: 20px;
   height: 200px;
   padding: 0px 0px 15px 0px;
   overflow: hidden;
-`;
-
-export const ItemContentsSection = styled.div`
-  padding: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "15px 10px 0px 10px" : "15px 0px 0px 0px"}; ;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    height: ${(props: IMarketItem) =>
+      props.backGroundColor ? "auto" : "200px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
 
 export const ItemImg = styled.img`
@@ -38,6 +52,19 @@ export const ItemImg = styled.img`
     padding: 0px 0px 15px 0px;
     border-radius: 20px;
   }
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    height: ${(props: IMarketItem) =>
+      props.backGroundColor ? "350px" : "200px"};
+  }
+  @media ${breakPoints.mini} {
+  }
+`;
+
+export const ItemContentsSection = styled.div`
+  padding: ${(props: IMarketItem) =>
+    props.backGroundColor ? "15px 10px 0px 10px" : "15px 0px 0px 0px"};
 `;
 
 export const ItemArticle = styled.div`
@@ -47,6 +74,7 @@ export const ItemArticle = styled.div`
   align-items: center;
   padding: 0px 0px 5px 0px;
 `;
+
 export const ItemTitle = styled.div`
   font-size: 15px;
   font-weight: 700;
@@ -54,46 +82,87 @@ export const ItemTitle = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   color: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "#fcdec0" : "black"};
+    props.backGroundColor ? "#fcdec0" : "black"};
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "28px" : "15px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
 
 export const ItemName = styled.div`
   display: flex;
   flex-direction: row;
   font-size: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "13px" : "15px"};
+    props.backGroundColor ? "13px" : "15px"};
   color: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "#e5b299" : "black"};
+    props.backGroundColor ? "#e5b299" : "black"};
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "26px" : "15px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
 
 export const SearchResult = styled.div`
   font-size: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "13px" : "15px"};
+    props.backGroundColor ? "13px" : "15px"};
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "26px" : "15px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
 
 export const ItemPrice = styled.div`
   font-size: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "20px" : "25px"};
+    props.backGroundColor ? "20px" : "25px"};
   color: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "#e5b299" : "black"};
+    props.backGroundColor ? "#e5b299" : "black"};
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "28px" : "15px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
 export const ItemCreated = styled.div`
   font-size: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "15px" : "15px"};
+    props.backGroundColor ? "15px" : "15px"};
   color: ${(props: IMarketItem) =>
-    props.backGroundcolor ? "#e5b299" : "#676767"};
+    props.backGroundColor ? "#e5b299" : "#676767"};
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "23px" : "15px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
 
 export const ItemPickedCount = styled.span`
@@ -102,4 +171,12 @@ export const ItemPickedCount = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "26px" : "15px"};
+  }
+  @media ${breakPoints.mini} {
+  }
 `;
