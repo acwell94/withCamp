@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../globalstyles/Media";
 
 const Button = styled.button`
   width: 150px;
@@ -22,6 +23,17 @@ const Button = styled.button`
     color: #dd7202;
     border: 2px solid #dd7202;
   }`}
+
+  @media ${breakPoints.mobile} {
+    width: 100px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  @media ${breakPoints.mini} {
+    width: 80px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
 `;
 
 interface IButtonProps {

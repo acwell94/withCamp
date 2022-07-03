@@ -19,6 +19,9 @@ export const WriteCommon = styled.div`
   @media ${breakPoints.mobile} {
     font-size: 20px;
   }
+  @media ${breakPoints.mini} {
+    font-size: 10px;
+  }
 `;
 
 export const FooterPage = styled.div`

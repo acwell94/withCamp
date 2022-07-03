@@ -7,6 +7,7 @@ interface IMarketItem {
 
 export const BestContentsItemSection = styled.div`
   cursor: pointer;
+  width: 100%;
   padding: 0px 0px 10px 0px;
   background-color: ${(props: IMarketItem) =>
     props.backGroundColor ? "#7d5a50e0" : "#fff"};
@@ -15,16 +16,19 @@ export const BestContentsItemSection = styled.div`
   box-shadow: ${(props: IMarketItem) =>
     props.backGroundColor ? "rgb(219 219 219) 0px 5px 20px;" : ""};
   @media ${breakPoints.tablet} {
+    width: ${(props: IMarketItem) => (props.backGroundColor ? "80%" : "100%")};
+    margin: ${(props: IMarketItem) =>
+      props.backGroundColor ? "0px 0px 50px 0px" : "0"};
   }
   @media ${breakPoints.mobile} {
     margin: ${(props: IMarketItem) =>
       props.backGroundColor ? "0px 0px 50px 0px" : "0"};
   }
   @media ${breakPoints.mini} {
+    margin: ${(props: IMarketItem) =>
+      props.backGroundColor ? "0px 0px 50px 0px" : "0"};
   }
 `;
-
-// ${(props:IMarketItem) => props.backGroundColor ? :}
 
 export const ItemImgArticle = styled.div`
   border-radius: 20px;
@@ -32,12 +36,16 @@ export const ItemImgArticle = styled.div`
   padding: 0px 0px 15px 0px;
   overflow: hidden;
   @media ${breakPoints.tablet} {
+    height: ${(props: IMarketItem) =>
+      props.backGroundColor ? "auto" : "200px"};
   }
   @media ${breakPoints.mobile} {
     height: ${(props: IMarketItem) =>
       props.backGroundColor ? "auto" : "200px"};
   }
   @media ${breakPoints.mini} {
+    height: ${(props: IMarketItem) =>
+      props.backGroundColor ? "auto" : "200px"};
   }
 `;
 
@@ -53,12 +61,16 @@ export const ItemImg = styled.img`
     border-radius: 20px;
   }
   @media ${breakPoints.tablet} {
+    height: ${(props: IMarketItem) =>
+      props.backGroundColor ? "350px" : "200px"};
   }
   @media ${breakPoints.mobile} {
     height: ${(props: IMarketItem) =>
       props.backGroundColor ? "350px" : "200px"};
   }
   @media ${breakPoints.mini} {
+    height: ${(props: IMarketItem) =>
+      props.backGroundColor ? "200px" : "200px"};
   }
 `;
 
@@ -84,12 +96,12 @@ export const ItemTitle = styled.div`
   color: ${(props: IMarketItem) =>
     props.backGroundColor ? "#fcdec0" : "black"};
   @media ${breakPoints.tablet} {
-  }
-  @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
       props.backGroundColor ? "28px" : "15px"};
   }
-  @media ${breakPoints.mini} {
+  @media ${breakPoints.mobile} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "25px" : "15px"};
   }
 `;
 
@@ -105,12 +117,12 @@ export const ItemName = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   @media ${breakPoints.tablet} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "25px" : "15px"};
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
       props.backGroundColor ? "26px" : "15px"};
-  }
-  @media ${breakPoints.mini} {
   }
 `;
 
@@ -118,12 +130,12 @@ export const SearchResult = styled.div`
   font-size: ${(props: IMarketItem) =>
     props.backGroundColor ? "13px" : "15px"};
   @media ${breakPoints.tablet} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "20px" : "15px"};
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
       props.backGroundColor ? "26px" : "15px"};
-  }
-  @media ${breakPoints.mini} {
   }
 `;
 
@@ -138,6 +150,8 @@ export const ItemPrice = styled.div`
   text-overflow: ellipsis;
 
   @media ${breakPoints.tablet} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "28px" : "15px"};
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
@@ -156,6 +170,8 @@ export const ItemCreated = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   @media ${breakPoints.tablet} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "20px" : "15px"};
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
@@ -172,6 +188,8 @@ export const ItemPickedCount = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   @media ${breakPoints.tablet} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "26px" : "15px"};
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>

@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
-import {
-  SearchOutlined,
-  CaretLeftFilled,
-  CaretRightFilled,
-} from "@ant-design/icons";
+import { CaretLeftFilled, CaretRightFilled } from "@ant-design/icons";
+import { breakPoints } from "../globalstyles/Media";
 
 interface ISearchBarOpen {
   isOpen: boolean;
@@ -11,8 +8,10 @@ interface ISearchBarOpen {
 
 export const MapSection = styled.div`
   display: flex;
+  position: relative;
+
   #map {
-    width: 1000px;
+    width: 100%;
     height: 500px;
     position: absolute;
     overflow: hidden;
@@ -23,6 +22,9 @@ export const MapSection = styled.div`
     position: relative;
     z-index: 2;
     font-size: 12px;
+    @media ${breakPoints.mini} {
+      font-size: 10px;
+    }
   }
 
   #menu_wrap {
@@ -33,6 +35,9 @@ export const MapSection = styled.div`
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.7);
     display: ${(props: ISearchBarOpen) => (props.isOpen ? "" : "none")};
+    @media ${breakPoints.mini} {
+      width: 180px;
+    }
   }
 
   #map_title {
@@ -45,26 +50,54 @@ export const MapSection = styled.div`
     color: #dd7202;
   }
 
+  #logo_title {
+    @media ${breakPoints.mini} {
+      font-size: 10px;
+    }
+  }
+
   #form {
     display: flex;
     justify-content: space-between;
     padding: 0px 15px 10px 15px;
+    width: 100%;
+    height: 100%;
   }
 
   #keyword {
     width: 100%;
     border: none;
     outline: none;
+    @media ${breakPoints.mini} {
+      height: 20px;
+      font-size: 10px;
+    }
   }
 
   #submit_btn {
+    width: 20%;
+
     background-color: #dd7202;
     border: none;
     outline: none;
+    @media ${breakPoints.mini} {
+      height: 20px;
+      font-size: 10px;
+    }
+  }
+
+  #placesList {
+    @media ${breakPoints.mini} {
+      padding: 0px 0px 0px 10px;
+      margin: 0;
+    }
   }
 
   #placesList h5 {
     color: #dd7202;
+    @media ${breakPoints.mini} {
+      font-size: 10px;
+    }
   }
 
   #placesList li {
@@ -72,6 +105,7 @@ export const MapSection = styled.div`
   }
   #placesList .item {
     border-bottom: 1px solid #888;
+
     overflow: hidden;
     cursor: pointer;
   }
@@ -83,6 +117,9 @@ export const MapSection = styled.div`
   #placesList .item span {
     display: block;
     margin-top: 4px;
+    @media ${breakPoints.mini} {
+      font-size: 10px;
+    }
   }
   #placesList .info .gray {
     color: #8a8a8a;
@@ -106,6 +143,9 @@ export const MapSection = styled.div`
     display: inline-block;
     margin-right: 10px;
     color: #7b7b7b;
+    @media ${breakPoints.mini} {
+      font-size: 15px;
+    }
   }
   #pagination .on {
     font-weight: bold;
@@ -127,11 +167,13 @@ export const MapSection = styled.div`
     background-color: #dd7202;
     border: none;
     outline: none;
+    cursor: pointer;
   }
 `;
 
-export const SearchIcon = styled(SearchOutlined)`
-  color: #fff;
+export const SearchIcon = styled.img`
+  width: 50%;
+  filter: brightness(1);
   cursor: pointer;
 `;
 

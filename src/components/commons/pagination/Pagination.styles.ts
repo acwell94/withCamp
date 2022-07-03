@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../globalstyles/Media";
 import { IPaginationPresenter } from "./Pagination.types";
 
 export const Main = styled.div`
@@ -15,11 +16,23 @@ export const PageNationSection = styled.div`
   display: flex;
   justify-content: space-between;
   width: 50%;
+  @media ${breakPoints.mobile} {
+    width: 70%;
+  }
+  @media ${breakPoints.mini} {
+    width: 70%;
+  }
 `;
 
 export const PageNextArticle = styled.div`
   font-size: 18px;
   cursor: pointer;
+  @media ${breakPoints.mobile} {
+    font-size: 12px;
+  }
+  @media ${breakPoints.mini} {
+    font-size: 10px;
+  }
 `;
 
 export const PageNumberArticle = styled.div`
@@ -27,4 +40,10 @@ export const PageNumberArticle = styled.div`
   color: ${(props: IPaginationPresenter) =>
     props.isActive === true ? "#dd7202" : "#000000"};
   cursor: pointer;
+  @media ${breakPoints.mobile} {
+    font-size: 12px;
+  }
+  @media ${breakPoints.mini} {
+    font-size: 10px;
+  }
 `;

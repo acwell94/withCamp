@@ -8,7 +8,7 @@ const ShortInput = styled.input`
   font-size: 14px;
   font-weight: 700;
   color: #676767;
-  width: 450px;
+  width: 100%;
   padding: 12px 16px;
   ::placeholder {
     color: #dbdbdb;

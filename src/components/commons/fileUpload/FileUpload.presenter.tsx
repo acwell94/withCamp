@@ -12,7 +12,7 @@ interface IFileUploadContainer {
 
 function FileUploadPresenter(props: IFileUploadContainer) {
   return (
-    <>
+    <S.Main>
       {props.fileUrl ? (
         <S.FileUpload
           onClick={props.onClickUpload}
@@ -27,12 +27,13 @@ function FileUploadPresenter(props: IFileUploadContainer) {
           <S.NotUpload>+</S.NotUpload>
         </S.Wrapper>
       )}
+
       <S.FileUploadBtn
         type="file"
         ref={props.fileRef}
         onChange={props.onChangeFile}
       />
-    </>
+    </S.Main>
   );
 }
 

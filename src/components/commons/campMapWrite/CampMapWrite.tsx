@@ -263,7 +263,11 @@ function CampKaKaoMapWritePage(props: any) {
   };
 
   return (
-    <S.MapSection className="map_wrap" isOpen={isOpen}>
+    <S.MapSection
+      id="map_wrap"
+      isOpen={isOpen}
+      style={{ width: "100%", height: "500px" }}
+    >
       <div id="map"></div>
 
       <div id="menuDiv">
@@ -271,7 +275,7 @@ function CampKaKaoMapWritePage(props: any) {
           <div className="option">
             <div>
               <div id="map_title">
-                <div>with:Camp</div>
+                <div id="logo_title">with:Camp</div>
               </div>
 
               <div id="form">
@@ -282,7 +286,7 @@ function CampKaKaoMapWritePage(props: any) {
                   onChange={onchangeSearch}
                 />
                 <button id="submit_btn" type="submit">
-                  <S.SearchIcon />
+                  <S.SearchIcon src="/images/search.png" />
                 </button>
               </div>
             </div>
