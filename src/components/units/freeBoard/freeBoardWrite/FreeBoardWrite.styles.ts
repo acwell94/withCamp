@@ -18,7 +18,7 @@ export const Main = styled.div`
   }
   @media ${breakPoints.mini} {
     width: 100%;
-    padding: 30px 10px;
+    padding: 20px 10px;
   }
 `;
 
@@ -135,18 +135,15 @@ export const QuillSection = styled.div`
   }
 `;
 
-export const FileUploadArrange = styled.div`
-  width: 100%;
-`;
-
 export const FileUploadArticle = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 
   @media ${breakPoints.mini} {
     flex-direction: column;
-
+    justify-content: center;
     align-items: center;
   }
 `;
@@ -155,11 +152,17 @@ export const ButtonArticle = styled.div`
   display: flex;
   justify-content: center;
   padding: 50px 0px 0px 0px;
+  @media ${breakPoints.mini} {
+    padding: 20px 0px 0px 0px;
+  }
 `;
 
 export const SmallInfo = styled.span`
   font-size: 15px;
   color: gray;
+  @media ${breakPoints.mini} {
+    font-size: 10px;
+  }
 `;
 
 export const MapArticle = styled.div`

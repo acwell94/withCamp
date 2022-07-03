@@ -123,7 +123,6 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
           />
         </S.ContentsArticle>
 
-        {/* <S.FileUploadArrange> */}
         <S.ContentsTitle>사진첨부</S.ContentsTitle>
         <S.FileUploadArticle>
           {props.fileUrls.map((el: string, index: number) => (
@@ -136,7 +135,6 @@ function FreeBoardWritePresenter(props: IFreeBoardWriteContainer) {
             />
           ))}
         </S.FileUploadArticle>
-        {/* </S.FileUploadArrange> */}
 
         <S.ButtonArticle>
           <ToogleButton
