@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../globalstyles/Media";
 
 const TopBox = styled.div`
   width: 52px;
@@ -20,6 +21,15 @@ const TopBox = styled.div`
   &:hover {
     color: #dd7202;
     border: 2px solid #dd7202;
+  }
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+  @media ${breakPoints.mini} {
+    display: none;
   }
 `;
 

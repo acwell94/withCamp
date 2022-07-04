@@ -22,7 +22,7 @@ export const BestContentsItemSection = styled.div`
   }
   @media ${breakPoints.mobile} {
     margin: ${(props: IMarketItem) =>
-      props.backGroundColor ? "0px 0px 50px 0px" : "0"};
+      props.backGroundColor ? "0px 0px 50px 0px" : "0px 20px 0px 0px"};
   }
   @media ${breakPoints.mini} {
     margin: ${(props: IMarketItem) =>
@@ -99,9 +99,14 @@ export const ItemTitle = styled.div`
     font-size: ${(props: IMarketItem) =>
       props.backGroundColor ? "28px" : "15px"};
   }
+
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
-      props.backGroundColor ? "25px" : "15px"};
+      props.backGroundColor ? "25px" : "12px"};
+  }
+  @media ${breakPoints.mini} {
+    font-size: ${(props: IMarketItem) =>
+      props.backGroundColor ? "25px" : "12px"};
   }
 `;
 
@@ -135,7 +140,7 @@ export const SearchResult = styled.div`
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
-      props.backGroundColor ? "26px" : "15px"};
+      props.backGroundColor ? "26px" : "12px"};
   }
 `;
 
@@ -175,7 +180,7 @@ export const ItemCreated = styled.div`
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
-      props.backGroundColor ? "23px" : "15px"};
+      props.backGroundColor ? "23px" : "12px"};
   }
   @media ${breakPoints.mini} {
   }
@@ -193,7 +198,7 @@ export const ItemPickedCount = styled.span`
   }
   @media ${breakPoints.mobile} {
     font-size: ${(props: IMarketItem) =>
-      props.backGroundColor ? "26px" : "15px"};
+      props.backGroundColor ? "26px" : "12px"};
   }
   @media ${breakPoints.mini} {
   }

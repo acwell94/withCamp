@@ -13,8 +13,8 @@ function FreeMarketListPresenter(props: IFreeMarketListContainer) {
     <S.Main>
       <S.MainTitle>with:Shop</S.MainTitle>
       <S.ContentsSection>
+        <S.WriteCommon>베스트 상품</S.WriteCommon>
         <S.BestContentsArticle>
-          <S.WriteCommon>베스트 상품</S.WriteCommon>
           <S.BestContentsCss>
             {props.fetchUsedItemsOfTheBest?.fetchUseditemsOfTheBest.map(
               (el) => (
@@ -26,14 +26,14 @@ function FreeMarketListPresenter(props: IFreeMarketListContainer) {
         <S.ContentsArticle>
           <S.ContentsTitleSection>
             <S.WriteCommon>상품 목록</S.WriteCommon>
-            <div>
+            <S.WriteCommon>
               <CommonButton
                 type="button"
                 contents="등록하기"
                 onClick={onClickMovetoPage(`/freeMarket/write`)}
                 disabled={!props.accessToken}
               />
-            </div>
+            </S.WriteCommon>
           </S.ContentsTitleSection>
           <S.SearchBarSection>
             <SearchBarPage

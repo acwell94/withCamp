@@ -9,6 +9,33 @@ import FileUploadContainer from "../../../commons/fileUpload/FileUpload.containe
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 function FreeMarketWritePresenter(props: any) {
+  const modules = {
+    toolbar: {
+      container: [
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+        [{ align: [] }],
+        ["bold", "italic", "underline", "strike", "blockquote"],
+
+        [
+          {
+            color: [
+              "#000000",
+              "#e60000",
+              "#ff9900",
+              "#ffff00",
+              "#008a00",
+              "#0066cc",
+              "#9933ff",
+
+              "custom-color",
+            ],
+          },
+          { background: [] },
+        ],
+      ],
+    },
+  };
   return (
     <S.Main>
       <S.MainTitle>
@@ -72,21 +99,22 @@ function FreeMarketWritePresenter(props: any) {
             register={props.register("tags")}
           />
         </S.ContentsArticle>
-        <div>
+        <S.QuillSection>
           <S.ContentsTitle>
             내용
             <S.ErrorMsg>{props.formState.errors.contents?.message}</S.ErrorMsg>
           </S.ContentsTitle>
           <ReactQuill
             onChange={props.onChangeContents}
+            modules={modules}
             value={props.getValues("contents") || ""}
             style={{
               width: "100%",
-              height: "500px",
-              marginBottom: "50px",
+              height: "100%",
             }}
           />
-        </div>
+        </S.QuillSection>
+
         <S.ContentsArticle>
           <S.ContentsTitle>사진첨부</S.ContentsTitle>
           <S.FileUploadArticle>
@@ -101,6 +129,7 @@ function FreeMarketWritePresenter(props: any) {
             ))}
           </S.FileUploadArticle>
         </S.ContentsArticle>
+
         <div>
           <S.ContentsTitle>
             거래장소
@@ -110,7 +139,9 @@ function FreeMarketWritePresenter(props: any) {
                 : "(거래장소를 등록해주세요.)"}
             </S.SmallInfo>
           </S.ContentsTitle>
-          <CampKaKaoMapWritePage setAddress={props.setAddress} />
+          <S.MapArticle>
+            <CampKaKaoMapWritePage setAddress={props.setAddress} />
+          </S.MapArticle>
         </div>
         <S.ButtonArticle>
           <ToogleButton

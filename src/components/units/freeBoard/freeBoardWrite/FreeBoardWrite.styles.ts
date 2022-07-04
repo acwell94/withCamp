@@ -98,7 +98,7 @@ export const ContentsInfoArticle = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 0px 0px 20px 0px;
-  /* width: 100%; */
+
   @media ${breakPoints.tablet} {
   }
   @media ${breakPoints.mobile} {
@@ -121,7 +121,7 @@ export const ContentsArticle = styled.div`
     padding: 10px 0;
   }
   @media ${breakPoints.mini} {
-    padding: 0px 0px 10px 0px;
+    padding: 10px 0px;
   }
 `;
 
