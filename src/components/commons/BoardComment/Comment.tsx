@@ -22,7 +22,12 @@ function Comment(props: any) {
         <S.Main key={uuidv4()}>
           <S.CommentInfoSection>
             <S.InfoWriterRatingArticle>
-              <S.InfoWriter>작성자 : {el.writer}</S.InfoWriter>
+              <S.InfoWriter>
+                작성자 : {el.writer}
+                <S.MediaDeleteBtn id={el._id} onClick={props.onClickOpenModal}>
+                  X
+                </S.MediaDeleteBtn>
+              </S.InfoWriter>
               <S.Rating value={el.rating} disabled></S.Rating>
               <S.DeleteBtn id={el._id} onClick={props.onClickOpenModal}>
                 X

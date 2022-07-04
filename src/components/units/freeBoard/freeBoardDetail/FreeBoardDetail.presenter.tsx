@@ -25,6 +25,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
           {props.fetchBoardData?.writer} 님 |{" "}
           {getDateDot(props.fetchBoardData?.createdAt)}
         </S.WriterDate>
+
         <S.ContentsBodyArticle>
           {props.fetchBoardData?.images
             ?.filter((el: string) => el)
@@ -44,6 +45,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               />
             )}
           </div>
+
           {!props.fetchBoardData?.boardAddress?.address.length ? (
             <S.NoMapMessage>모임장소가 없네요...ㅠㅠ</S.NoMapMessage>
           ) : (
@@ -55,16 +57,17 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
               />
             </S.MapBox>
           )}
-
-          {props.fetchBoardData?.youtubeUrl && (
-            <ReactPlayer
-              url={String(props.fetchBoardData?.youtubeUrl)}
-              playing={true}
-              muted={true}
-              width="700px"
-              height="500px"
-            />
-          )}
+          <S.ReactPlayerArticle>
+            {props.fetchBoardData?.youtubeUrl && (
+              <ReactPlayer
+                url={String(props.fetchBoardData?.youtubeUrl)}
+                playing={true}
+                muted={true}
+                width="100%"
+                height="100%"
+              />
+            )}
+          </S.ReactPlayerArticle>
         </S.ContentsBodyArticle>
         <S.ButtonArticle>
           <div>
@@ -109,12 +112,12 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
             <div>{props.fetchBoardData?.dislikeCount}</div>
           </S.LikeDiv>
         </S.LikeArticle>
-        <div>
+        <S.CommentWriteArticle>
           <FreeBoardCommentWriteContainer />
-        </div>
-        <div>
+        </S.CommentWriteArticle>
+        <S.CommentWriteArticle>
           <FreeBoardCommentListContainer />
-        </div>
+        </S.CommentWriteArticle>
       </S.ContentsSection>
     </S.Main>
   );

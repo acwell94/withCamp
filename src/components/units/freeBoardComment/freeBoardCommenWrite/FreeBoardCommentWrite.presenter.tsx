@@ -44,7 +44,10 @@ function FreeBoardCommentWritePresenter(
           </S.ContentsNumberError>
         </S.CommentInfo>
 
-        <S.Rating onChange={props.onChangeRating}></S.Rating>
+        <S.CommentInfoCss>
+          <S.CommentInfoTitle>평점</S.CommentInfoTitle>
+          <S.Rating onChange={props.onChangeRating}></S.Rating>
+        </S.CommentInfoCss>
       </S.CommentInfoSection>
 
       <div>
