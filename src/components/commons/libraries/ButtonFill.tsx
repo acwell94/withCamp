@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../globalstyles/Media";
 
 const Button = styled.button`
   padding: 10px 42px;
@@ -21,6 +22,16 @@ const Button = styled.button`
     border: 2px solid #dc8f3e;
   }`}
   transition: 0.2s;
+  @media ${breakPoints.mobile} {
+    width: 100px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  @media ${breakPoints.mini} {
+    width: 80px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
 `;
 
 interface IButtonProps {

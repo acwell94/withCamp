@@ -5,11 +5,14 @@ import { v4 as uuidv4 } from "uuid";
 const Slick = styled(Slider)`
   width: 100%;
   height: 100%;
+  position: relative;
   .slick-list {
     width: 100%;
     height: 100%;
   }
   .slick-slide div {
+    width: 100%;
+    height: 100%;
   }
   .slick-dots {
     display: flex;
@@ -17,6 +20,7 @@ const Slick = styled(Slider)`
     width: 100%;
   }
   .slick-track {
+    height: 100%;
   }
   .slick-dots li.slick-active button:before {
     width: 13px;
@@ -37,7 +41,8 @@ const Slick = styled(Slider)`
 
 const Img = styled.img`
   width: 100%;
-  height: 500px;
+  height: 100%;
+
   border-radius: 20px;
 `;
 

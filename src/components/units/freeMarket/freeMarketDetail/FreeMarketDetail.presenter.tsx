@@ -20,11 +20,10 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
         상품입니다.
       </S.MainTitle>
       <S.ContentsSection>
-        <S.CarouselCss>
-          <S.CarouselArticle>
-            <Carousel data={props.fetchUsedItemData?.images} />
-          </S.CarouselArticle>
-        </S.CarouselCss>
+        <S.CarouselArticle>
+          <Carousel data={props.fetchUsedItemData?.images} />
+        </S.CarouselArticle>
+
         <S.ContentsArticle>
           <S.ContentsName>{props.fetchUsedItemData?.name}</S.ContentsName>
 
@@ -55,30 +54,35 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
             관심 : {props.fetchUsedItemData?.pickedCount}
           </S.ContentsPickedCount>
           <S.PickedPayBtnArticle>
-            <CommonButton
-              type="button"
-              contents="목록으로"
-              onClick={onClickMovetoPage("/freeMarket")}
-            />
-            <CommonButton
-              type="button"
-              contents="찜하기"
-              onClick={props.onClickPick}
-              disabled={
-                props.fetchUsedItemData.seller._id ===
-                props.fetchUserData?.fetchUserLoggedIn._id
-              }
-            />
-
-            <CommonFillButton
-              type="button"
-              contents="바로구매"
-              disabled={
-                props.fetchUsedItemData.seller._id ===
-                props.fetchUserData?.fetchUserLoggedIn._id
-              }
-              onClick={props.onClickPay}
-            />
+            <div>
+              <CommonButton
+                type="button"
+                contents="목록으로"
+                onClick={onClickMovetoPage("/freeMarket")}
+              />
+            </div>
+            <S.EditButtonDiv>
+              <CommonButton
+                type="button"
+                contents="찜하기"
+                onClick={props.onClickPick}
+                disabled={
+                  props.fetchUsedItemData.seller._id ===
+                  props.fetchUserData?.fetchUserLoggedIn._id
+                }
+              />
+            </S.EditButtonDiv>
+            <div>
+              <CommonFillButton
+                type="button"
+                contents="바로구매"
+                disabled={
+                  props.fetchUsedItemData.seller._id ===
+                  props.fetchUserData?.fetchUserLoggedIn._id
+                }
+                onClick={props.onClickPay}
+              />
+            </div>
           </S.PickedPayBtnArticle>
         </S.ContentsArticle>
 
