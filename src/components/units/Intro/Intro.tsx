@@ -1,8 +1,14 @@
+import Head from "next/head";
 import * as S from "./Intro.styles";
 
 function IntroPresenter() {
   return (
     <S.Main>
+      <Head>
+        <meta property="og:title" content="with:Camp" />
+        <meta property="og:description" content="같이 그리고 가치 있는 캠핑" />
+        <meta property="og:image" content="/images/withCamp.png" />
+      </Head>
       <S.WriteSection>
         <S.WriteCommon>같이 캠핑을 즐기다.</S.WriteCommon>
         <S.LogoArticle>

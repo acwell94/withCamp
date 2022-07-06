@@ -1,5 +1,6 @@
 import FreeMarketDetailContainer from "../../../src/components/units/freeMarket/freeMarketDetail/FreeMarketDetail.container";
 import { gql, request } from "graphql-request";
+import Head from "next/head";
 
 interface ISSR {
   fetchUsedItemData: {
@@ -19,7 +20,25 @@ interface ISSR {
 
 export default function FreeMarketDetail(props: ISSR) {
   return (
-    <FreeMarketDetailContainer fetchUsedItemData={props.fetchUsedItemData} />
+    <>
+      <Head>
+        <title>{props.fetchUsedItemData?.seller?.name}님의 판매글</title>
+        <meta property="og:title" content={props.fetchUsedItemData?.name} />
+        <meta
+          property="og:description"
+          content={props.fetchUsedItemData?.remarks}
+        />
+        <meta
+          property="og:image"
+          content={
+            props.fetchUsedItemData?.images[0]
+              ? props.fetchUsedItemData?.images[0]
+              : `/images/campfire.jpg`
+          }
+        />
+      </Head>
+      <FreeMarketDetailContainer fetchUsedItemData={props.fetchUsedItemData} />
+    </>
   );
 }
 

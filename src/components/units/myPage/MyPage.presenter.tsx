@@ -6,11 +6,15 @@ import PaginationContainer from "../../commons/pagination/Pagination.container";
 import { PointComma } from "../../commons/libraries/point";
 import onClickMove from "../../hooks/useMove";
 import { IMyPageContainer } from "./MyPage.types";
+import Head from "next/head";
 
 function MyPagePresenter(props: IMyPageContainer) {
   const { onClickMovetoPage } = onClickMove();
   return (
     <S.Main>
+      <Head>
+        <title>{props.fetchUserData?.fetchUserLoggedIn.name}님의 페이지</title>
+      </Head>
       <S.MainTitle>마이페이지</S.MainTitle>
       <S.InfoSection>
         <S.InfoNameChargeArticle>

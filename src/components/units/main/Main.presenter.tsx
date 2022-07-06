@@ -3,10 +3,16 @@ import * as S from "./Main.styles";
 import { v4 as uuidv4 } from "uuid";
 import { IFreeBoardListContainer } from "../freeBoard/freeBoardCommon/FreeBoard.types";
 import MarketItem from "../../commons/marketItem/MarketItem";
+import Head from "next/head";
 function MainPresenter(props: IFreeBoardListContainer) {
   const { onClickMovetoPage } = onClickMove();
   return (
     <S.Main>
+      <Head>
+        <meta property="og:title" content="with:Camp" />
+        <meta property="og:description" content="같이 그리고 가치 있는 캠핑" />
+        <meta property="og:image" content={`/images/withCamp.png`} />
+      </Head>
       <S.IntroSection>
         <S.IntroArrange>
           <S.IntroSectionFirst>

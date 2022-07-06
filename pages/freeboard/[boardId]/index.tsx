@@ -1,5 +1,6 @@
 import FreeBoardDetailContainer from "../../../src/components/units/freeBoard/freeBoardDetail/FreeBoardDetail.container";
 import { gql, request } from "graphql-request";
+import Head from "next/head";
 
 interface ISSR {
   fetchBoardData: {
@@ -17,7 +18,27 @@ interface ISSR {
 }
 
 export default function FreeBoardDetailPage(props: ISSR) {
-  return <FreeBoardDetailContainer fetchBoardData={props.fetchBoardData} />;
+  return (
+    <>
+      <Head>
+        <title>{`${props.fetchBoardData?.writer}님의 글`}</title>
+        <meta property="og:title" content={props.fetchBoardData?.title} />
+        <meta
+          property="og:description"
+          content={props.fetchBoardData?.contents}
+        />
+        <meta
+          property="og:image"
+          content={
+            props.fetchBoardData?.images[0]
+              ? props.fetchBoardData?.images[0]
+              : `/images/campfire.jpg`
+          }
+        />
+      </Head>
+      <FreeBoardDetailContainer fetchBoardData={props.fetchBoardData} />;
+    </>
+  );
 }
 
 export const FETCH_BOARD: any = gql`

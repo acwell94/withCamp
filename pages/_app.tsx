@@ -8,10 +8,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "antd/dist/antd.css";
 import Layout from "../src/components/commons/layout";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <title>with:Camp</title>
+      </Head>
       <RecoilRoot>
         <ApolloSetting>
           <Global styles={globalstyles} />
