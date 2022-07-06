@@ -13,7 +13,12 @@ function MyPagePresenter(props: IMyPageContainer) {
   return (
     <S.Main>
       <Head>
-        <title>{props.fetchUserData?.fetchUserLoggedIn.name}님의 페이지</title>
+        <title>
+          {props.fetchUserData?.fetchUserLoggedIn.name
+            ? props.fetchUserData?.fetchUserLoggedIn.name
+            : "with:Camp"}
+          님의 페이지
+        </title>
       </Head>
       <S.MainTitle>마이페이지</S.MainTitle>
       <S.InfoSection>
