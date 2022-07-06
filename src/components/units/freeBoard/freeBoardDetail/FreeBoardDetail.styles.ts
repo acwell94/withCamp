@@ -73,6 +73,7 @@ export const ContentsSection = styled.div`
 export const ContentsTitle = styled.div`
   font-size: 30px;
   font-weight: 700;
+  word-break: break-all;
   @media ${breakPoints.tablet} {
   }
   @media ${breakPoints.mobile} {

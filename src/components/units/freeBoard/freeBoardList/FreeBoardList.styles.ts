@@ -169,7 +169,8 @@ export const SearchBarSection = styled.div`
 export const ContentsArticleTitle = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+
   border-bottom: 2px solid #e5e5e5;
   border-top: 2px solid #e5e5e5;
   padding: 10px 0px;
@@ -183,14 +184,14 @@ export const ContentsArticleTitle = styled.div`
 `;
 
 export const ArticleElement = styled.div`
-  display: flex;
-  justify-content: center;
   width: 100%;
   font-size: 15px;
   font-weight: 700;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   @media ${breakPoints.mobile} {
     font-size: 12px;
   }
@@ -199,7 +200,7 @@ export const ArticleElement = styled.div`
   }
 `;
 
-export const SearchResult = styled.div`
+export const SearchResult = styled.span`
   font-size: 15px;
   @media ${breakPoints.mobile} {
     font-size: 12px;
@@ -208,13 +209,12 @@ export const SearchResult = styled.div`
     font-size: 10px;
   }
 `;
-
-export const ContentsListBorder = styled.div``;
 
 export const ContentsArticleList = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
   padding: 10px 0px;
   border-bottom: 1px solid #e5e5e5;
   cursor: pointer;

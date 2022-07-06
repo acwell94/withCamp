@@ -250,11 +250,10 @@ export const HistoryContentsTitle = styled.div`
 `;
 
 export const ContentsTitleElement = styled.div`
-  display: flex;
-  justify-content: center;
   width: 100%;
   font-size: 15px;
   font-weight: 700;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -283,7 +282,7 @@ export const SoldAt = styled.div`
 export const ContentsArticleList = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px 0px;
   border-bottom: 1px solid #e5e5e5;
 `;

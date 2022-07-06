@@ -69,27 +69,26 @@ function FreeBoardListPresenter(props: IFreeBoardListContainer) {
             <S.ArticleElement>작성자</S.ArticleElement>
             <S.ArticleElement>작성일</S.ArticleElement>
           </S.ContentsArticleTitle>
-          <S.ContentsListBorder>
-            {props.fetchBoardsData?.fetchBoards.map((el) => (
-              <S.ContentsArticleList
-                key={uuidv4()}
-                id={el._id}
-                onClick={onClickMovetoPage(`/freeboard/${el._id}`)}
-              >
-                <S.ArticleElement>
-                  {el.title
-                    .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
-                    .split("#$%")
-                    .map((el: any) => (
-                      <S.SearchResult key={uuidv4()}>{el}</S.SearchResult>
-                    ))}
-                </S.ArticleElement>
 
-                <S.ArticleElement>{el.writer} 님</S.ArticleElement>
-                <S.ArticleElement>{getDateDot(el.createdAt)}</S.ArticleElement>
-              </S.ContentsArticleList>
-            ))}
-          </S.ContentsListBorder>
+          {props.fetchBoardsData?.fetchBoards.map((el) => (
+            <S.ContentsArticleList
+              key={uuidv4()}
+              id={el._id}
+              onClick={onClickMovetoPage(`/freeboard/${el._id}`)}
+            >
+              <S.ArticleElement>
+                {el.title
+                  .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
+                  .split("#$%")
+                  .map((el: any) => (
+                    <S.SearchResult key={uuidv4()}>{el}</S.SearchResult>
+                  ))}
+              </S.ArticleElement>
+
+              <S.ArticleElement>{el.writer} 님</S.ArticleElement>
+              <S.ArticleElement>{getDateDot(el.createdAt)}</S.ArticleElement>
+            </S.ContentsArticleList>
+          ))}
         </S.ContentsArticle>
         <S.ButtonSection>
           <CommonButton
