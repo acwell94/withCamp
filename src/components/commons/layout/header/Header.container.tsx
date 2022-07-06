@@ -27,6 +27,11 @@ function HeaderContainer() {
     } catch (error: any) {}
   };
 
+  const onClickMovePage = (path: string) => () => {
+    setIsOpen((prev) => !prev);
+    router.push(path);
+  };
+
   return (
     <HeaderPresenter
       fetchUserData={fetchUserData}
@@ -35,6 +40,7 @@ function HeaderContainer() {
       onClickOpenMenu={onClickOpenMenu}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
+      onClickMovePage={onClickMovePage}
     />
   );
 }

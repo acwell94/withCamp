@@ -20,15 +20,15 @@ function HeaderPresenter(props: IHeaderContainer) {
         </S.LogoSection>
 
         <S.HeaderNav isOpen={props.isOpen}>
-          <S.NavMenu onClick={onClickMovetoPage("/Intro")}>소개</S.NavMenu>
-          <S.NavMenu onClick={onClickMovetoPage("/freeboard")}>
+          <S.NavMenu onClick={props.onClickMovePage("/Intro")}>소개</S.NavMenu>
+          <S.NavMenu onClick={props.onClickMovePage("/freeboard")}>
             자유게시판
           </S.NavMenu>
-          <S.NavMenu onClick={onClickMovetoPage("/freeMarket")}>
+          <S.NavMenu onClick={props.onClickMovePage("/freeMarket")}>
             with:Shop
           </S.NavMenu>
           <S.NavMenu
-            onClick={onClickMovetoPage(
+            onClick={props.onClickMovePage(
               props.accessToken ? "/mypage" : "/signIn"
             )}
           >
@@ -48,11 +48,11 @@ function HeaderPresenter(props: IHeaderContainer) {
           </S.HeaderUserSection>
         ) : (
           <S.HeaderUserSection>
-            <S.UserArticle onClick={onClickMovetoPage("/signIn")}>
+            <S.UserArticle onClick={props.onClickMovePage("/signIn")}>
               로그인
             </S.UserArticle>
             <S.DivideBar>|</S.DivideBar>
-            <S.UserArticle onClick={onClickMovetoPage("/signup")}>
+            <S.UserArticle onClick={props.onClickMovePage("/signup")}>
               회원가입
             </S.UserArticle>
           </S.HeaderUserSection>

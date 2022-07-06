@@ -75,11 +75,11 @@ export const HeaderNav = styled.div`
     display: ${(props: IProps) => (props.isOpen ? "flex" : "none")};
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 0;
     width: 100%;
+    padding: 10px 0px;
     background-color: #f7f1eb;
   }
 `;
@@ -97,7 +97,12 @@ export const NavMenu = styled.div`
     margin: 0px 0px 20px 0px;
     font-size: 18px;
   }
-  @media ${breakPoints.mobile} {
+  @media ${breakPoints.mini} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 10px 0px;
+    font-size: 12px;
   }
 `;
 

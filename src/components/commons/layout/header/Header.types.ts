@@ -7,4 +7,5 @@ export interface IHeaderContainer {
   onClickOpenMenu: () => void;
   isOpen: boolean;
   setIsOpen: any;
+  onClickMovePage: (path: string) => () => void;
 }
