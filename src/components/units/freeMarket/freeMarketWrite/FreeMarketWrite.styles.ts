@@ -100,7 +100,6 @@ export const ErrorMsg = styled.span`
   color: red;
   padding: 0px 0px 0px 10px;
   @media ${breakPoints.tablet} {
-    width: 100%;
   }
   @media ${breakPoints.mobile} {
     font-size: 12px;

@@ -1,7 +1,7 @@
 import * as S from "./MyPage.styles";
 import PointCharge from "../../commons/pointCharge/PointCharge";
 import { v4 as uuidv4 } from "uuid";
-import { getDateDot } from "../../commons/libraries/Date";
+import { getDateSliceYear } from "../../commons/libraries/Date";
 import PaginationContainer from "../../commons/pagination/Pagination.container";
 import { PointComma } from "../../commons/libraries/point";
 import onClickMove from "../../hooks/useMove";
@@ -29,34 +29,25 @@ function MyPagePresenter(props: IMyPageContainer) {
             </S.HistoryCount>
           </S.CommonHistorySection>
 
-          <S.CommonHistorySection
-            style={{
-              padding: "0px 20px",
-              margin: "0px 20px",
-              borderRight: "3px solid #e5e5e5",
-              borderLeft: "3px solid #e5e5e5",
-            }}
-          >
+          <S.CommonHistorySection>
             <S.HistoryTitle>판매한 상품</S.HistoryTitle>
             <S.HistoryCount>
               {Number(props.fetchSoldCountData?.fetchUseditemsCountISold)}
             </S.HistoryCount>
           </S.CommonHistorySection>
 
-          <S.CommonHistorySection
-            style={{
-              padding: "0px 20px 0px 0px",
-              margin: "0px 20px 0px 0px",
-              borderRight: "3px solid #e5e5e5",
-            }}
-          >
+          <S.CommonHistorySection>
             <S.HistoryTitle>구매한 상품</S.HistoryTitle>
             <S.HistoryCount>
               {props.fetchIBoughtData?.fetchUseditemsIBought.length}
             </S.HistoryCount>
           </S.CommonHistorySection>
 
-          <S.CommonHistorySection>
+          <S.CommonHistorySection
+            style={{
+              borderRight: "none",
+            }}
+          >
             <S.HistoryTitle>포인트</S.HistoryTitle>
             <S.HistoryCount>
               {PointComma(
@@ -66,6 +57,7 @@ function MyPagePresenter(props: IMyPageContainer) {
           </S.CommonHistorySection>
         </S.UserHistoryArticle>
       </S.InfoSection>
+
       <S.HistoryContentsTitleArticle>
         {props.tap.map((el: any) => (
           <S.HistoryTap
@@ -105,7 +97,7 @@ function MyPagePresenter(props: IMyPageContainer) {
                     {el.seller.name}
                   </S.ContentsTitleElement>
                   <S.ContentsTitleElement>
-                    {getDateDot(el.createdAt)}
+                    {getDateSliceYear(el.createdAt)}
                   </S.ContentsTitleElement>
                 </S.ContentsArticleList>
               ))}
@@ -143,13 +135,13 @@ function MyPagePresenter(props: IMyPageContainer) {
                     {!el.soldAt ? <S.SoldAt>판매중</S.SoldAt> : el.buyer?.name}
                   </S.ContentsTitleElement>
                   <S.ContentsTitleElement>
-                    {getDateDot(el.createdAt)}
+                    {getDateSliceYear(el.createdAt)}
                   </S.ContentsTitleElement>
                   <S.ContentsTitleElement>
                     {!el.soldAt ? (
                       <S.SoldAt>판매중</S.SoldAt>
                     ) : (
-                      getDateDot(el.soldAt)
+                      getDateSliceYear(el.soldAt)
                     )}
                   </S.ContentsTitleElement>
                 </S.ContentsArticleList>
@@ -192,10 +184,10 @@ function MyPagePresenter(props: IMyPageContainer) {
                     {el.seller?.name}
                   </S.ContentsTitleElement>
                   <S.ContentsTitleElement>
-                    {getDateDot(el.createdAt)}
+                    {getDateSliceYear(el.createdAt)}
                   </S.ContentsTitleElement>
                   <S.ContentsTitleElement>
-                    {getDateDot(el.soldAt)}
+                    {getDateSliceYear(el.soldAt)}
                   </S.ContentsTitleElement>
                 </S.ContentsArticleList>
               ))}
@@ -237,7 +229,7 @@ function MyPagePresenter(props: IMyPageContainer) {
                       {PointComma(el.balance)}
                     </S.ContentsTitleElement>
                     <S.ContentsTitleElement>
-                      {getDateDot(el.createdAt)}
+                      {getDateSliceYear(el.createdAt)}
                     </S.ContentsTitleElement>
                   </S.ContentsArticleList>
                 )

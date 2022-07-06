@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../globalstyles/Media";
 
 export const Main = styled.div`
   display: flex;
@@ -6,6 +7,10 @@ export const Main = styled.div`
   border-bottom: 3px solid #e5e5e5;
   width: 100%;
   padding: 0px 0px 30px 0px;
+`;
+
+export const CommentForm = styled.form`
+  width: 100%;
 `;
 
 export const InputSection = styled.div`
@@ -53,4 +58,14 @@ export const ErrorMsg = styled.div`
   font-weight: 700;
   color: red;
   padding: 10px 0px 0px 0px;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 12px;
+    padding: 10px 0px 0px 10px;
+  }
+  @media ${breakPoints.mini} {
+    font-size: 10px;
+    padding: 10px 0px 0px 10px;
+  }
 `;

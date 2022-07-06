@@ -119,7 +119,7 @@ function MarketCommentWrite(props: any) {
 
   return (
     <S.Main>
-      <form
+      <S.CommentForm
         onSubmit={handleSubmit(
           props.isEdit || props.isAnswerEdit
             ? onClickCommentUpdate
@@ -155,7 +155,7 @@ function MarketCommentWrite(props: any) {
             {props.isEdit || props.isAnswerEdit ? "수정" : "등록"}
           </S.SubmitButton>
         </S.SubmitSection>
-      </form>
+      </S.CommentForm>
     </S.Main>
   );
 }

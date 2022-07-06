@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../globalstyles/Media";
 
 interface IProps {
   isToolOpen?: boolean;
@@ -43,7 +44,15 @@ export const EditDeleteTool = styled.div`
   padding: 10px;
   position: absolute;
   top: 0px;
-  left: 425px;
+  right: 25px;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    right: 25px;
+  }
+  @media ${breakPoints.mini} {
+    right: 15px;
+  }
 `;
 
 export const EditBtn = styled.div`
