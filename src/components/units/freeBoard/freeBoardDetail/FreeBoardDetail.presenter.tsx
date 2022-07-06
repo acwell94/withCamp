@@ -46,7 +46,7 @@ function FreeBoardDetailPresenter(props: IFreeBoardDetailContainer) {
             )}
           </div>
 
-          {!props.fetchBoardData?.boardAddress?.address.length ? (
+          {!props.fetchBoardData?.boardAddress?.address ? (
             <S.NoMapMessage>모임장소가 없네요...ㅠㅠ</S.NoMapMessage>
           ) : (
             <S.MapBox>

@@ -87,7 +87,7 @@ function FreeMarketDetailPresenter(props: IFreeMarketDetailContainer) {
         </S.ContentsArticle>
 
         <S.MapArticle>
-          {!props.fetchUsedItemData?.useditemAddress.address?.length ? (
+          {!props.fetchUsedItemData?.useditemAddress.address ? (
             <S.NoMapMessage>거래장소가 등록되지 않았습니다.</S.NoMapMessage>
           ) : (
             <S.MapBox>

@@ -27,14 +27,6 @@ export default function FreeBoardDetailPage(props: ISSR) {
           property="og:description"
           content={props.fetchBoardData?.contents}
         />
-        <meta
-          property="og:image"
-          content={
-            props.fetchBoardData?.images[0]
-              ? props.fetchBoardData?.images[0]
-              : `/images/campfire.jpg`
-          }
-        />
       </Head>
       <FreeBoardDetailContainer fetchBoardData={props.fetchBoardData} />;
     </>
