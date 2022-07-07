@@ -15,7 +15,8 @@ yarn install => graphql endpoint graphql08에서 graphql로 변경 => yarn dev
 
 ## 기술스택
 
-![무제](https://user-images.githubusercontent.com/89783182/177761451-46bf1713-d5ed-46cf-8fbd-95a3ea97e11e.png)
+![무제](https://user-images.githubusercontent.com/89783182/177766909-f6cfea7f-159c-40a1-8f33-460fe4601a7f.png)
+
 
 ## 페이지 구성
 
