@@ -30,7 +30,7 @@ yarn install => graphql endpoint graphql08에서 graphql로 변경 => yarn dev
 ![main-butto-click](https://user-images.githubusercontent.com/89783182/177761826-424c8d28-a113-47fb-84c9-7fd557f282d7.gif)
 
 > 소개페이지와 베스트게시글의 상세정보를 확인할 수 있습니다.
-- 하단의 footre에서 개발자에게 연락할 수 있습니다.
+- 하단의 footer에서 개발자에게 연락할 수 있습니다.
 
 2. 소개페이지
 
